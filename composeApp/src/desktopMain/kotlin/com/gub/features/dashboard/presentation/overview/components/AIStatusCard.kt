@@ -1,8 +1,6 @@
-package com.gub.features.dashboard.presentation.screens.components
+package com.gub.features.dashboard.presentation.overview.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Psychology
@@ -10,7 +8,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -66,25 +63,13 @@ fun AIStatusCard(modifier: Modifier = Modifier) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 12.dp)
+                    .padding(top = 8.dp)
                     .height(160.dp),
                 contentAlignment = Alignment.Center
             ) {
 
                 Box(
-                    modifier = Modifier
-                        .size(140.dp)
-//                        .background(
-//                            brush = Brush.sweepGradient(
-//                                colors = listOf(
-//                                    Color(0xFF4CAF50),
-//                                    Color(0xFF8BC34A),
-//                                    Color(0xFF4CAF50)
-//                                )
-//                            ),
-//                            shape = CircleShape
-//                        ).padding(16.dp)
-//                        .background(Color(0xFF161B22), CircleShape)
+                    modifier = Modifier.size(140.dp)
                 ) {
                     CircularProgressIndicator(
                         progress = { 0.9F },

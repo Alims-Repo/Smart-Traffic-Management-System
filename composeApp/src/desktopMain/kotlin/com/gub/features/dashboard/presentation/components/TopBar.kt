@@ -46,34 +46,12 @@ fun TopBar(hazeState: HazeState, selectedTab: Int, onSelect: (Int) -> Unit, topB
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        "Traffic Control Dashboard",
-                        fontSize = 28.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = Color.White
-                    )
-                    Spacer(modifier = Modifier.width(12.dp))
-                    Card(
-                        colors = CardDefaults.cardColors(containerColor = Color(0xFF1B5E20))
-                    ) {
-                        Row(
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            PulsingDot()
-                            Spacer(modifier = Modifier.width(4.dp))
-                            Text(
-                                "LIVE",
-                                color = Color.White,
-                                fontSize = 10.sp,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
-                    }
-                }
+                Text(
+                    text = "Traffic Control Dashboard",
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White
+                )
 
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
