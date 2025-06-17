@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.*
 import com.gub.core.ui.components.PulsingDot
 import com.gub.features.dashboard.presentation.components.TopBar
+import com.gub.features.dashboard.presentation.insights.UserInsightsDashboardCard
 import com.gub.features.dashboard.presentation.liveStatus.LiveStatus
 import com.gub.features.dashboard.presentation.overview.Overview
 import com.gub.features.dashboard.presentation.quickAction.QuickActionsGrid
@@ -119,6 +120,7 @@ fun Dashboard() {
             0 -> Overview(hazeState, height.toDp())
             1 -> LiveStatus(hazeState, height.toDp())
             2 -> QuickActionsGrid(hazeState, height.toDp())
+            3 -> UserInsightsDashboardCard(hazeState, height.toDp())
         }
     }
 
@@ -718,86 +720,6 @@ fun OptimizationItem(title: String, location: String, progress: Int, eta: String
                     .background(Color(0xFF4CAF50), RoundedCornerShape(2.dp))
             )
         }
-    }
-}
-
-@Composable
-fun UserInsightsDashboardCard() {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF161B22)),
-        shape = RoundedCornerShape(12.dp)
-    ) {
-        Column(
-            modifier = Modifier.padding(20.dp)
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    "Personal Insights - Alims-Repo",
-                    color = Color.White,
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
-                )
-
-                Card(
-                    colors = CardDefaults.cardColors(containerColor = Color(0xFF1976D2))
-                ) {
-                    Text(
-                        "LEVEL 3",
-                        color = Color.White,
-                        fontSize = 8.sp,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly
-            ) {
-                UserInsightMetric("Session Time", "3h 31m", "Today", Color(0xFF2196F3))
-                UserInsightMetric("Actions Taken", "17", "This Session", Color(0xFF4CAF50))
-                UserInsightMetric("Reports Generated", "24", "This Month", Color(0xFF9C27B0))
-                UserInsightMetric("Optimizations", "13", "Requested", Color(0xFF32519))
-                UserInsightMetric("Efficiency Gain", "19.4%", "Your Impact", Color(0xFF4CAF50))
-            }
-        }
-    }
-}
-
-@Composable
-fun UserInsightMetric(title: String, value: String, subtitle: String, color: Color) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(horizontal = 8.dp)
-    ) {
-        Text(
-            title,
-            color = Color.Gray,
-            fontSize = 10.sp,
-            textAlign = TextAlign.Center
-        )
-        Spacer(modifier = Modifier.height(4.dp))
-        Text(
-            value,
-            color = color,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Center
-        )
-        Text(
-            subtitle,
-            color = color,
-            fontSize = 9.sp,
-            textAlign = TextAlign.Center
-        )
     }
 }
 

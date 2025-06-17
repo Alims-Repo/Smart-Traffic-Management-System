@@ -23,6 +23,7 @@ import dev.chrisbanes.haze.hazeSource
 fun QuickActionsGrid(hazeState: HazeState, top: Dp) {
     Column(
         modifier = Modifier
+            .fillMaxSize()
             .hazeSource(hazeState)
             .verticalScroll(rememberScrollState())
             .padding(
