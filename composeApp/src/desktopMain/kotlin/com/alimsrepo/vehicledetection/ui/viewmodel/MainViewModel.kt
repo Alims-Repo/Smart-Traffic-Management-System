@@ -5,14 +5,13 @@
  */
 package com.alimsrepo.vehicledetection.ui.viewmodel
 
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
 import com.alimsrepo.vehicledetection.data.model.StatsResponse
 import com.alimsrepo.vehicledetection.data.repository.VehicleDetectionRepository
 import com.alimsrepo.vehicledetection.utils.Constants
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 class MainViewModel(
     private val repository: VehicleDetectionRepository

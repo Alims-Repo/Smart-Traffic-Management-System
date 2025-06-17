@@ -1,9 +1,8 @@
 package com.gub.features.dashboard.presentation
 
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.runtime.Composable
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,8 +19,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.foundation.*
-import com.gub.core.ui.components.PulsingDot
 import com.gub.features.dashboard.presentation.components.TopBar
 import com.gub.features.dashboard.presentation.insights.UserInsightsDashboardCard
 import com.gub.features.dashboard.presentation.liveStatus.LiveStatus

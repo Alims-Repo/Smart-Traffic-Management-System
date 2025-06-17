@@ -5,16 +5,13 @@
  */
 package com.gub.app
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.*
-import com.alimsrepo.vehicledetection.utils.Constants
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.WindowPosition
+import androidx.compose.ui.window.application
+import androidx.compose.ui.window.rememberWindowState
 import com.gub.core.ui.theme.VehicleDetectionTheme
 import java.awt.Toolkit
 
@@ -30,7 +27,7 @@ fun main() = application {
         onCloseRequest = {
             exitApplication()
         },
-        title = "M1 Vehicle Detection Desktop",
+        title = "AI Vehicle Detection Desktop",
         state = rememberWindowState(
             width = windowWidth, height = windowHeight,
             position = WindowPosition(Alignment.Center)

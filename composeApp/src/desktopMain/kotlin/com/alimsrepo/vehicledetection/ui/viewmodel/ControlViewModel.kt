@@ -5,10 +5,16 @@
  */
 package com.alimsrepo.vehicledetection.ui.viewmodel
 
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
-import com.alimsrepo.vehicledetection.data.model.*
+import com.alimsrepo.vehicledetection.data.model.ConfigUpdateRequest
+import com.alimsrepo.vehicledetection.data.model.ConfigurationStats
 import com.alimsrepo.vehicledetection.data.repository.VehicleDetectionRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 class ControlViewModel(
     private val repository: VehicleDetectionRepository

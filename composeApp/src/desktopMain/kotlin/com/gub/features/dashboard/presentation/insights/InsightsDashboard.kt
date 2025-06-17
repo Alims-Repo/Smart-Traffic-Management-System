@@ -15,7 +15,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.gub.features.dashboard.presentation.insights.UserInsightMetric
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.hazeSource
 

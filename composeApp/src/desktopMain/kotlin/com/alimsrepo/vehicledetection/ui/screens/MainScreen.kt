@@ -5,15 +5,15 @@
  */
 package com.alimsrepo.vehicledetection.ui.screens
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.filled.*
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.alimsrepo.vehicledetection.data.repository.VehicleDetectionRepository
-import com.alimsrepo.vehicledetection.ui.components.VideoDisplay
 import com.alimsrepo.vehicledetection.ui.components.StatsPanel
+import com.alimsrepo.vehicledetection.ui.components.VideoDisplay
 import com.alimsrepo.vehicledetection.ui.viewmodel.MainViewModel
 import kotlinx.coroutines.launch
 

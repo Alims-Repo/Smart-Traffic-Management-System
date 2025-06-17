@@ -8,9 +8,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.gub.features.dashboard.presentation.LiveTrafficMetricsCard
 import com.gub.features.dashboard.presentation.SystemOverviewCard
+import com.gub.features.dashboard.presentation.overview.components.AIStatusCard
 import com.gub.features.dashboard.presentation.overview.components.RecentAlertsCard
 import com.gub.features.dashboard.presentation.overview.components.TopPerformingIntersectionsCard
-import com.gub.features.dashboard.presentation.overview.components.AIStatusCard
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.hazeSource
 

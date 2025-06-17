@@ -2,7 +2,10 @@ package com.gub.features.dashboard.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -11,9 +14,11 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.gub.core.ui.components.PulsingDot
 import com.gub.core.ui.components.UserProfileChip
-import dev.chrisbanes.haze.*
+import dev.chrisbanes.haze.HazeInputScale
+import dev.chrisbanes.haze.HazeProgressive
+import dev.chrisbanes.haze.HazeState
+import dev.chrisbanes.haze.hazeEffect
 
 @Composable
 fun TopBar(hazeState: HazeState, selectedTab: Int, onSelect: (Int) -> Unit, topBarHeight: (Int) -> Unit) {

@@ -13,10 +13,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.alimsrepo.vehicledetection.data.repository.VehicleDetectionRepository
-import com.alimsrepo.vehicledetection.ui.screens.MainScreen
-import com.alimsrepo.vehicledetection.ui.screens.DashboardScreen
-import com.alimsrepo.vehicledetection.ui.screens.ControlScreen
 import com.alimsrepo.vehicledetection.ui.components.ConnectionStatus
+import com.alimsrepo.vehicledetection.ui.screens.ControlScreen
+import com.alimsrepo.vehicledetection.ui.screens.DashboardScreen
+import com.alimsrepo.vehicledetection.ui.screens.MainScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

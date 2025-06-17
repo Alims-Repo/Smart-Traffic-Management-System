@@ -4,17 +4,11 @@
             "type": "gradle",
             "name": "Frontend",
             "tasks": ["desktopRun"],
-            "args": ["-DmainClass=com.gub.MainKt", "--quiet", "-p", "$PROJECT_DIR$/composeApp"],
+            "args": ["-DmainClass=com.gub.app.MainKt", "--quiet", "-p", "$PROJECT_DIR$/composeApp"],
             "initScripts": {
                 "flmapper": "ext.mapPath = { path -> path }"
             },
             "workingDir": "$PROJECT_DIR$"
-        },
-        {
-            "type": "python",
-            "name": "Server",
-            "file": "detection-logic/src/main.py", //"detection-login/src/main.py",
-            "arguments": []
         }
     ]
 }
