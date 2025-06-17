@@ -1,5 +1,5 @@
 """
-Main application server
+Updated main application server with enhanced controls
 Author: Alims-Repo
 Date: 2025-06-17
 """
@@ -16,13 +16,14 @@ from src.core.device_optimizer import DeviceOptimizer
 from src.core.detector import VehicleDetector
 from src.core.broadcaster import VideoBroadcaster
 from src.server.handlers import WebSocketHandlers, HTTPHandlers
+from src.server.enhanced_handlers import EnhancedHTTPHandlers  # Import enhanced handlers
 
 config = get_config()
 logger = get_logger("app")
 
 
 class VehicleDetectionServer:
-    """Main server application"""
+    """Main server application with enhanced controls"""
     
     def __init__(self):
         self.app = web.Application()
@@ -34,6 +35,7 @@ class VehicleDetectionServer:
         # Handlers
         self.ws_handlers: Optional[WebSocketHandlers] = None
         self.http_handlers: Optional[HTTPHandlers] = None
+        self.enhanced_handlers: Optional[EnhancedHTTPHandlers] = None  # Add enhanced handlers
         
         self._setup_routes()
         self._setup_middleware()
@@ -53,12 +55,27 @@ class VehicleDetectionServer:
     async def _setup_http_routes(self, app):
         """Setup HTTP routes after handlers are initialized"""
         if self.http_handlers:
+            # Basic endpoints
             self.app.router.add_get("/health", self.http_handlers.health_check)
             self.app.router.add_get("/stats", self.http_handlers.get_stats)
-            self.app.router.add_get("/config", self.http_handlers.get_config)
-            self.app.router.add_post("/config", self.http_handlers.update_config)
             self.app.router.add_get("/performance", self.http_handlers.get_performance)
             self.app.router.add_get("/api", self.http_handlers.api_info)
+
+        if self.enhanced_handlers:
+            # Enhanced control endpoints
+            self.app.router.add_get("/config", self.http_handlers.get_config)
+            self.app.router.add_post("/config", self.enhanced_handlers.update_config)
+
+            # Control endpoints
+            self.app.router.add_post("/control/playback", self.enhanced_handlers.control_playback)
+            self.app.router.add_post("/control/detection", self.enhanced_handlers.update_detection_settings)
+            self.app.router.add_post("/control/broadcast", self.enhanced_handlers.control_broadcast)
+            self.app.router.add_post("/control/device", self.enhanced_handlers.switch_device)
+
+            # Client management
+            self.app.router.add_get("/clients", self.enhanced_handlers.get_client_management)
+
+            logger.info("✅ Enhanced control endpoints registered")
     
     def _setup_middleware(self):
         """Setup middleware for CORS, logging, etc."""
@@ -78,15 +95,24 @@ class VehicleDetectionServer:
             try:
                 return await handler(request)
             except Exception as e:
-                logger.error(f"❌ Request error: {e}")
+                logger.error(f"❌ Request error on {request.path}: {e}")
                 if config.DEBUG:
                     traceback.print_exc()
                 return web.json_response(
-                    {"error": str(e), "path": request.path},
+                    {"error": str(e), "path": request.path, "method": request.method},
                     status=500
                 )
         
+        @web.middleware
+        async def logging_middleware(request, handler):
+            """Request logging middleware"""
+            logger.info(f"📡 {request.method} {request.path} from {request.remote}")
+            response = await handler(request)
+            logger.info(f"📤 {request.method} {request.path} -> {response.status}")
+            return response
+
         self.app.middlewares.append(cors_handler)
+        self.app.middlewares.append(logging_middleware)
         self.app.middlewares.append(error_handler)
     
     async def websocket_handler(self, request) -> web.WebSocketResponse:
@@ -129,6 +155,8 @@ class VehicleDetectionServer:
             message = json.loads(data)
             command = message.get("command")
             
+            logger.info(f"📨 WebSocket command: {command}")
+
             if not self.ws_handlers:
                 await ws.send_json({"error": "Server not ready"})
                 return
@@ -187,11 +215,18 @@ class VehicleDetectionServer:
             # Initialize handlers
             self.ws_handlers = WebSocketHandlers(self.broadcaster, self.detector, self.device)
             self.http_handlers = HTTPHandlers(self.broadcaster, self.detector, self.device)
+            self.enhanced_handlers = EnhancedHTTPHandlers(self.broadcaster, self.detector, self.device)
             
             logger.info("✅ Server startup complete!")
             logger.info(f"🌐 Access the server at: http://{config.HOST}:{config.PORT}")
             logger.info(f"🔗 WebSocket endpoint: ws://{config.HOST}:{config.PORT}/ws")
             logger.info(f"📊 Health check: http://{config.HOST}:{config.PORT}/health")
+            logger.info("🎮 Control endpoints:")
+            logger.info("   • POST /control/playback - Video playback control")
+            logger.info("   • POST /control/detection - Detection settings")
+            logger.info("   • POST /control/broadcast - Broadcasting control")
+            logger.info("   • POST /control/device - Device switching")
+            logger.info("   • POST /config - Configuration updates")
             
         except Exception as e:
             logger.error(f"❌ Startup failed: {e}")

@@ -1,5 +1,5 @@
 /**
- * WebSocket manager for real-time communication
+ * Fixed WebSocket manager with better error handling
  * Author: Alims-Repo
  * Date: 2025-06-17
  */
@@ -24,7 +24,9 @@ class WebSocketManager(
     private val url: String = Constants.DEFAULT_WEBSOCKET_URL
 ) {
     private val client = HttpClient(CIO) {
-        install(WebSockets)
+        install(WebSockets) {
+            pingInterval = 20_000
+        }
     }
     
     private val gson = Gson()
@@ -44,22 +46,30 @@ class WebSocketManager(
     }
     
     fun connect() {
+        if (_connectionState.value == ConnectionState.CONNECTED) {
+            println("Already connected")
+            return
+        }
+
         scope.launch {
             try {
                 _connectionState.value = ConnectionState.CONNECTING
+                println("🔄 Connecting to WebSocket: $url")
                 
                 client.webSocket(url) {
                     session = this
                     _connectionState.value = ConnectionState.CONNECTED
+                    println("✅ WebSocket connected successfully")
                     
                     // Launch command sender
                     launch {
                         for (command in commandChannel) {
                             try {
                                 val json = gson.toJson(command)
+                                println("📤 Sending command: $json")
                                 send(Frame.Text(json))
                             } catch (e: Exception) {
-                                println("Error sending command: ${e.message}")
+                                println("❌ Error sending command: ${e.message}")
                             }
                         }
                     }
@@ -67,29 +77,38 @@ class WebSocketManager(
                     // Listen for incoming messages
                     for (frame in incoming) {
                         if (frame is Frame.Text) {
-                            handleMessage(frame.readText())
+                            val message = frame.readText()
+                            handleMessage(message)
                         }
                     }
                 }
             } catch (e: Exception) {
                 _connectionState.value = ConnectionState.ERROR
-                println("WebSocket connection error: ${e.message}")
+                println("❌ WebSocket connection error: ${e.message}")
+                e.printStackTrace()
                 scheduleReconnect()
+            } finally {
+                session = null
+                if (_connectionState.value == ConnectionState.CONNECTED) {
+                    _connectionState.value = ConnectionState.DISCONNECTED
+                }
             }
         }
     }
     
     private fun handleMessage(message: String) {
         try {
+            println("📥 Received message: ${message.take(100)}...") // Log first 100 chars
+
             // Try to parse as detection response first
             val detectionResponse = gson.fromJson(message, DetectionResponse::class.java)
-            if (detectionResponse.image.isNotEmpty()) {
+            if (detectionResponse?.image?.isNotEmpty() == true) {
                 _detectionData.value = detectionResponse
                 return
             }
         } catch (e: Exception) {
             // Not a detection response, might be a command response
-            println("Received other message: $message")
+            println("📨 Received other message type: ${message.take(200)}")
         }
     }
     
@@ -97,17 +116,20 @@ class WebSocketManager(
         scope.launch {
             delay(Constants.RECONNECT_INTERVAL_MS)
             if (_connectionState.value != ConnectionState.CONNECTED) {
+                println("🔄 Attempting reconnection...")
                 connect()
             }
         }
     }
     
     suspend fun sendCommand(command: String, data: Map<String, String>? = null) {
+        println("📤 Queuing command: $command")
         val wsCommand = WebSocketCommand(command, data)
-        commandChannel.trySend(wsCommand)
+        commandChannel.trySend(wsCommand).isSuccess
     }
     
     fun disconnect() {
+        println("🔌 Disconnecting WebSocket...")
         scope.cancel()
         session?.cancel()
         _connectionState.value = ConnectionState.DISCONNECTED

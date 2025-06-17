@@ -1,5 +1,5 @@
 /**
- * Control screen for managing server settings
+ * Fixed Control screen with message display
  * Author: Alims-Repo
  * Date: 2025-06-17
  */
@@ -13,7 +13,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.alimsrepo.vehicledetection.data.repository.VehicleDetectionRepository
 import com.alimsrepo.vehicledetection.ui.components.ControlPanel
@@ -26,41 +25,89 @@ fun ControlScreen(
 ) {
     val viewModel = remember { ControlViewModel(repository) }
     val config by viewModel.currentConfig.collectAsState()
+    val isLoading by viewModel.isLoading.collectAsState()
+    val message by viewModel.message.collectAsState()
     val scope = rememberCoroutineScope()
 
     LaunchedEffect(Unit) {
         viewModel.loadCurrentConfig()
     }
 
-    LazyColumn(
+    Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        item {
-            ControlPanel(
-                currentConfig = config,
-                onConfigUpdate = { newConfig ->
-                    scope.launch {
-                        viewModel.updateConfig(newConfig)
+        // Message display
+        message?.let { msg ->
+            Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = if (msg.contains("success", ignoreCase = true)) {
+                        MaterialTheme.colorScheme.secondaryContainer
+                    } else {
+                        MaterialTheme.colorScheme.errorContainer
                     }
-                },
-                onPlaybackControl = { action ->
-                    scope.launch {
-                        viewModel.controlPlayback(action)
+                )
+            ) {
+                Row(
+                    modifier = Modifier.padding(16.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = msg,
+                        modifier = Modifier.weight(1f)
+                    )
+                    IconButton(onClick = { viewModel.clearMessage() }) {
+                        Icon(Icons.Default.Close, contentDescription = "Dismiss")
                     }
-                },
-                onDeviceSwitch = { device ->
-                    scope.launch {
-                        viewModel.switchDevice(device)
-                    }
-                },
-                onBroadcastControl = { action ->
-                    scope.launch {
-                        viewModel.controlBroadcast(action)
-                    }
-                },
-                modifier = Modifier.fillMaxWidth()
-            )
+                }
+            }
+        }
+
+        // Loading indicator
+        if (isLoading) {
+            Card {
+                Row(
+                    modifier = Modifier.padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    CircularProgressIndicator(modifier = Modifier.size(20.dp))
+                    Text("Processing...")
+                }
+            }
+        }
+
+        // Control panel
+        LazyColumn(
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            item {
+                ControlPanel(
+                    currentConfig = config,
+                    onConfigUpdate = { newConfig ->
+                        scope.launch {
+                            viewModel.updateConfig(newConfig)
+                        }
+                    },
+                    onPlaybackControl = { action ->
+                        scope.launch {
+                            viewModel.controlPlayback(action)
+                        }
+                    },
+                    onDeviceSwitch = { device ->
+                        scope.launch {
+                            viewModel.switchDevice(device)
+                        }
+                    },
+                    onBroadcastControl = { action ->
+                        scope.launch {
+                            viewModel.controlBroadcast(action)
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
         }
     }
 }
