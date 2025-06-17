@@ -1,11 +1,10 @@
 package com.gub.features.dashboard.presentation
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.runtime.Composable
-import androidx.compose.animation.core.*
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -14,7 +13,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -22,22 +20,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlinx.coroutines.delay
-import androidx.compose.animation.core.*
-import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.*
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.filled.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.gub.core.ui.components.PulsingDot
-import com.gub.core.ui.components.UserProfileChip
-import com.gub.features.analytics.presentation.LiveIntersectionRankingCard
+import com.gub.features.dashboard.presentation.components.TopBar
+import com.gub.features.dashboard.presentation.overview.Overview
+import com.gub.utils.UiCalculations.toDp
+import dev.chrisbanes.haze.rememberHazeState
 
 @Composable
 fun Dashboard() {
@@ -49,191 +37,93 @@ fun Dashboard() {
     val dashboardTabs = listOf("Overview", "Live Status", "Quick Actions", "Insights")
     val timeFrames = listOf("Real-time", "Last Hour", "Last 6H", "Today")
 
-    LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+    var height by remember { mutableStateOf(0) }
+    val hazeState = rememberHazeState()
+
+//    LazyColumn(
+//        modifier = Modifier.hazeSource(hazeState),
+//        verticalArrangement = Arrangement.spacedBy(16.dp),
+//        contentPadding = PaddingValues(top = height.toDp() + 8.dp, start = 24.dp, end = 24.dp, bottom = 24.dp)
+//    ) {
+//
+//        // Dashboard Content based on selected tab
+//        when (selectedTab) {
+//            0 -> { // Overview
+//                item { SystemOverviewCard() }
+//                item {
+//                    Row(
+//                        modifier = Modifier.fillMaxWidth(),
+//                        horizontalArrangement = Arrangement.spacedBy(16.dp)
+//                    ) {
+//                        LiveTrafficMetricsCard(modifier = Modifier.weight(1f))
+//                        AIStatusCard(modifier = Modifier.weight(1f))
+//                    }
+//                }
+//                item {
+//                    Row(
+//                        modifier = Modifier.fillMaxWidth(),
+//                        horizontalArrangement = Arrangement.spacedBy(16.dp)
+//                    ) {
+//                        RecentAlertsCard(modifier = Modifier.weight(1f))
+//                        TopPerformingIntersectionsCard(modifier = Modifier.weight(1f))
+//                    }
+//                }
+//                item { TodaysActivitySummaryCard() }
+//            }
+//            1 -> { // Live Status
+//                item { LiveSystemStatusCard() }
+//                item {
+//                    Row(
+//                        modifier = Modifier.fillMaxWidth(),
+//                        horizontalArrangement = Arrangement.spacedBy(16.dp)
+//                    ) {
+//                        RealTimeTrafficFlowCard(modifier = Modifier.weight(0.6f))
+//                        ActiveIncidentsCard(modifier = Modifier.weight(0.4f))
+//                    }
+//                }
+//                item {
+//                    Row(
+//                        modifier = Modifier.fillMaxWidth(),
+//                        horizontalArrangement = Arrangement.spacedBy(16.dp)
+//                    ) {
+//                        LiveIntersectionRankingCard()
+//                        LiveIntersectionMapCard(modifier = Modifier.weight(1f))
+//                        CurrentOptimizationsCard(modifier = Modifier.weight(1f))
+//                    }
+//                }
+//            }
+//            2 -> { // Quick Actions
+//                item { QuickActionsGrid() }
+//            }
+//            3 -> { // Insights
+//                item { UserInsightsDashboardCard() }
+//                item {
+//                    Row(
+//                        modifier = Modifier.fillMaxWidth(),
+//                        horizontalArrangement = Arrangement.spacedBy(16.dp)
+//                    ) {
+//                        PredictiveInsightsCard(modifier = Modifier.weight(1f))
+//                        PerformanceTrendsCard(modifier = Modifier.weight(1f))
+//                    }
+//                }
+//            }
+//        }
+//    }
+
+    AnimatedContent(
+        targetState = selectedTab
     ) {
-        item {
-            Column {
-                // Dashboard Header
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text(
-                                "Traffic Control Dashboard",
-                                fontSize = 28.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Color.White
-                            )
-                            Spacer(modifier = Modifier.width(12.dp))
-                            Card(
-                                colors = CardDefaults.cardColors(containerColor = Color(0xFF1B5E20))
-                            ) {
-                                Row(
-                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-                                    PulsingDot()
-                                    Spacer(modifier = Modifier.width(4.dp))
-                                    Text(
-                                        "LIVE",
-                                        color = Color.White,
-                                        fontSize = 10.sp,
-                                        fontWeight = FontWeight.Bold
-                                    )
-                                }
-                            }
-                        }
-
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.padding(top = 4.dp)
-                        ) {
-                            Text(
-                                "Welcome back, Alims-Repo",
-                                fontSize = 14.sp,
-                                color = Color.Gray
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(
-                                "•",
-                                color = Color.Gray,
-                                fontSize = 12.sp
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(
-                                currentTime,
-                                fontSize = 11.sp,
-                                color = Color.Gray
-                            )
-                        }
-                    }
-
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        // Time Frame Selector
-                        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                            timeFrames.forEachIndexed { index, frame ->
-                                FilterChip(
-                                    onClick = { selectedTimeFrame = index },
-                                    label = {
-                                        Text(
-                                            frame,
-                                            fontSize = 10.sp,
-                                            color = if (selectedTimeFrame == index) Color.White else Color.Gray
-                                        )
-                                    },
-                                    selected = selectedTimeFrame == index,
-                                    colors = FilterChipDefaults.filterChipColors(
-                                        selectedContainerColor = Color(0xFF2E7D32),
-                                        containerColor = Color(0xFF161B22)
-                                    )
-                                )
-                            }
-                        }
-
-                        UserProfileChip()
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                // Dashboard Navigation Tabs
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    dashboardTabs.forEachIndexed { index, tab ->
-                        FilterChip(
-                            onClick = { selectedTab = index },
-                            label = {
-                                Text(
-                                    tab,
-                                    fontSize = 12.sp,
-                                    color = if (selectedTab == index) Color.White else Color.Gray
-                                )
-                            },
-                            selected = selectedTab == index,
-                            colors = FilterChipDefaults.filterChipColors(
-                                selectedContainerColor = Color(0xFF1976D2),
-                                containerColor = Color(0xFF161B22)
-                            )
-                        )
-                    }
-                }
-            }
-        }
-
-        // Dashboard Content based on selected tab
-        when (selectedTab) {
-            0 -> { // Overview
-                item { SystemOverviewCard() }
-                item {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(16.dp)
-                    ) {
-                        LiveTrafficMetricsCard(modifier = Modifier.weight(1f))
-                        AIStatusCard(modifier = Modifier.weight(1f))
-                    }
-                }
-                item {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(16.dp)
-                    ) {
-                        RecentAlertsCard(modifier = Modifier.weight(1f))
-                        TopPerformingIntersectionsCard(modifier = Modifier.weight(1f))
-                    }
-                }
-                item { TodaysActivitySummaryCard() }
-            }
-            1 -> { // Live Status
-                item { LiveSystemStatusCard() }
-                item {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(16.dp)
-                    ) {
-                        RealTimeTrafficFlowCard(modifier = Modifier.weight(0.6f))
-                        ActiveIncidentsCard(modifier = Modifier.weight(0.4f))
-                    }
-                }
-                item {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(16.dp)
-                    ) {
-                        LiveIntersectionRankingCard()
-                        LiveIntersectionMapCard(modifier = Modifier.weight(1f))
-                        CurrentOptimizationsCard(modifier = Modifier.weight(1f))
-                    }
-                }
-            }
-            2 -> { // Quick Actions
-                item { QuickActionsGrid() }
-            }
-            3 -> { // Insights
-                item { UserInsightsDashboardCard() }
-                item {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(16.dp)
-                    ) {
-                        PredictiveInsightsCard(modifier = Modifier.weight(1f))
-                        PerformanceTrendsCard(modifier = Modifier.weight(1f))
-                    }
-                }
-            }
+        when(it) {
+            0 -> Overview(hazeState, height.toDp())
         }
     }
+
+    TopBar(
+        hazeState,
+        selectedTab,
+        onSelect = { selectedTab = it },
+        topBarHeight = { height = it }
+    )
 }
 
 @Composable
@@ -479,381 +369,7 @@ fun LiveMetricItem(label: String, value: String, change: String, positive: Boole
     }
 }
 
-@Composable
-fun AIStatusCard(modifier: Modifier = Modifier) {
-    Card(
-        modifier = modifier,
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF161B22)),
-        shape = RoundedCornerShape(12.dp)
-    ) {
-        Column(
-            modifier = Modifier.padding(20.dp)
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        Icons.Default.Psychology,
-                        contentDescription = null,
-                        tint = Color(0xFF4CAF50),
-                        modifier = Modifier.size(20.dp)
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        "AI Control System",
-                        color = Color.White,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
 
-                Card(
-                    colors = CardDefaults.cardColors(containerColor = Color(0xFF1B5E20))
-                ) {
-                    Text(
-                        "ACTIVE",
-                        color = Color.White,
-                        fontSize = 8.sp,
-                        fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // AI Performance Gauge
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(80.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Box(
-                    modifier = Modifier
-                        .size(70.dp)
-                        .background(
-                            brush = Brush.sweepGradient(
-                                colors = listOf(
-                                    Color(0xFF4CAF50),
-                                    Color(0xFF8BC34A),
-                                    Color(0xFF4CAF50)
-                                )
-                            ),
-                            shape = CircleShape
-                        )
-                        .padding(2.dp)
-                        .background(Color(0xFF161B22), CircleShape)
-                ) {
-                    Column(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            "97.1%",
-                            color = Color.White,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            "Efficiency",
-                            color = Color.Gray,
-                            fontSize = 8.sp
-                        )
-                    }
-                }
-            }
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            AIStatusItem("Models Running", "12/12", Color(0xFF4CAF50))
-            AIStatusItem("Decision Speed", "0.28ms", Color(0xFF4CAF50))
-            AIStatusItem("Learning Rate", "97.8%", Color(0xFF2196F3))
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Text(
-                "Last optimization: 3 minutes ago",
-                color = Color.Gray,
-                fontSize = 10.sp,
-                style = androidx.compose.ui.text.TextStyle(
-                    fontStyle = androidx.compose.ui.text.font.FontStyle.Italic
-                )
-            )
-        }
-    }
-}
-
-@Composable
-fun AIStatusItem(label: String, value: String, color: Color) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 2.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Text(label, color = Color.Gray, fontSize = 10.sp)
-        Text(
-            value,
-            color = color,
-            fontSize = 10.sp,
-            fontWeight = FontWeight.Medium
-        )
-    }
-}
-
-@Composable
-fun RecentAlertsCard(modifier: Modifier = Modifier) {
-    Card(
-        modifier = modifier,
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF161B22)),
-        shape = RoundedCornerShape(12.dp)
-    ) {
-        Column(
-            modifier = Modifier.padding(20.dp)
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    "Recent Alerts",
-                    color = Color.White,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
-                )
-
-                Text(
-                    "3 Active",
-                    color = Color(0xFFFF9800),
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.Medium
-                )
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            AlertItem(
-                title = "High Traffic Volume",
-                location = "Main St & 5th Ave",
-                time = "2 min ago",
-                severity = "Medium",
-                isActive = true
-            )
-
-            AlertItem(
-                title = "Signal Malfunction",
-                location = "Oak St & 3rd Ave",
-                time = "8 min ago",
-                severity = "High",
-                isActive = true
-            )
-
-            AlertItem(
-                title = "Congestion Detected",
-                location = "Highway 101 Corridor",
-                time = "15 min ago",
-                severity = "Low",
-                isActive = false
-            )
-
-            AlertItem(
-                title = "AI Optimization Complete",
-                location = "Downtown District",
-                time = "23 min ago",
-                severity = "Info",
-                isActive = false
-            )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            OutlinedButton(
-                onClick = { },
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFF2196F3)),
-                border = BorderStroke(1.dp, Color(0xFF2196F3).copy(alpha = 0.5f))
-            ) {
-                Text("View All Alerts", fontSize = 12.sp)
-                Spacer(modifier = Modifier.width(4.dp))
-                Icon(
-                    Icons.Default.ArrowForward,
-                    contentDescription = null,
-                    modifier = Modifier.size(16.dp)
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun AlertItem(title: String, location: String, time: String, severity: String, isActive: Boolean) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 6.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Box(
-            modifier = Modifier
-                .size(8.dp)
-                .background(
-                    when (severity) {
-                        "High" -> Color(0xFFF44336)
-                        "Medium" -> Color(0xFFFF9800)
-                        "Low" -> Color(0xFF2196F3)
-                        else -> Color(0xFF4CAF50)
-                    },
-                    CircleShape
-                )
-        )
-
-        if (isActive) {
-            Spacer(modifier = Modifier.width(4.dp))
-            PulsingDot()
-        }
-
-        Spacer(modifier = Modifier.width(8.dp))
-
-        Column(modifier = Modifier.weight(1f)) {
-            Text(
-                title,
-                color = if (isActive) Color.White else Color.Gray,
-                fontSize = 11.sp,
-                fontWeight = if (isActive) FontWeight.Medium else FontWeight.Normal
-            )
-            Text(
-                location,
-                color = Color.Gray,
-                fontSize = 9.sp
-            )
-        }
-
-        Text(
-            time,
-            color = Color.Gray,
-            fontSize = 9.sp
-        )
-    }
-}
-
-@Composable
-fun TopPerformingIntersectionsCard(modifier: Modifier = Modifier) {
-    val intersections = listOf(
-        IntersectionPerformance("Main St & 5th Ave", 98.7f, "+2.3%"),
-        IntersectionPerformance("Park Rd & Oak St", 94.8f, "+1.1%"),
-        IntersectionPerformance("1st Ave & Broadway", 92.4f, "+0.8%"),
-        IntersectionPerformance("Highway 101 & Center", 90.1f, "-0.5%")
-    )
-
-    Card(
-        modifier = modifier,
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF161B22)),
-        shape = RoundedCornerShape(12.dp)
-    ) {
-        Column(
-            modifier = Modifier.padding(20.dp)
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    "Top Performing Intersections",
-                    color = Color.White,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
-                )
-
-                Icon(
-                    Icons.Default.Star,
-                    contentDescription = null,
-                    tint = Color(0xFFFFD700),
-                    modifier = Modifier.size(16.dp)
-                )
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            intersections.forEachIndexed { index, intersection ->
-                TopIntersectionItem(intersection, index + 1)
-                if (index < intersections.size - 1) {
-                    Spacer(modifier = Modifier.height(8.dp))
-                }
-            }
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            OutlinedButton(
-                onClick = { },
-                modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFF4CAF50)),
-                border = BorderStroke(1.dp, Color(0xFF4CAF50).copy(alpha = 0.5f))
-            ) {
-                Text("View Full Rankings", fontSize = 12.sp)
-            }
-        }
-    }
-}
-
-@Composable
-fun TopIntersectionItem(intersection: IntersectionPerformance, rank: Int) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Box(
-            modifier = Modifier
-                .size(20.dp)
-                .background(
-                    when (rank) {
-                        1 -> Color(0xFFFFD700)
-                        2 -> Color(0xFFC0C0C0)
-                        3 -> Color(0xFFCD7F32)
-                        else -> Color(0xFF424242)
-                    },
-                    CircleShape
-                ),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                rank.toString(),
-                color = if (rank <= 3) Color.Black else Color.White,
-                fontSize = 10.sp,
-                fontWeight = FontWeight.Bold
-            )
-        }
-
-        Spacer(modifier = Modifier.width(12.dp))
-
-        Column(modifier = Modifier.weight(1f)) {
-            Text(
-                intersection.name,
-                color = Color.White,
-                fontSize = 11.sp,
-                fontWeight = FontWeight.Medium
-            )
-            Text(
-                "Efficiency: ${String.format("%.1f", intersection.efficiency)}%",
-                color = Color.Gray,
-                fontSize = 9.sp
-            )
-        }
-
-        Text(
-            intersection.change,
-            color = if (intersection.change.startsWith("+")) Color(0xFF4CAF50) else Color(0xFFF44336),
-            fontSize = 10.sp,
-            fontWeight = FontWeight.Medium
-        )
-    }
-}
 
 @Composable
 fun TodaysActivitySummaryCard() {
@@ -2042,15 +1558,3 @@ fun PerformanceTrendItem(label: String, value: String, detail: String, showTrend
     }
 }
 
-data class IntersectionPerformance(
-    val name: String,
-    val efficiency: Float,
-    val change:String
-)
-
-// Data classes for Dashboard
-//data class IntersectionPerformance(
-//    val name: String,
-//    val efficiency: Float,
-//    val change: String
-//)

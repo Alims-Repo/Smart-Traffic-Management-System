@@ -51,7 +51,6 @@ fun TrafficManagementApp() {
                             )
                         )
                     )
-                    .padding(24.dp)
             ) {
 
                 AnimatedContent(

@@ -24,6 +24,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
             implementation(compose.materialIconsExtended)
+            implementation("dev.chrisbanes.haze:haze:1.6.4")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

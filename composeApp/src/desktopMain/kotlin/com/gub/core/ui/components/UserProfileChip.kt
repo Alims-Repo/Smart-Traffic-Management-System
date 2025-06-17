@@ -40,6 +40,7 @@ fun UserProfileChip() {
                     "A",
                     color = Color.White,
                     fontSize = 10.sp,
+                    lineHeight = 10.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.align(Alignment.Center)
                 )
