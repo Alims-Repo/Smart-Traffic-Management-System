@@ -1,10 +1,7 @@
 package com.gub.app
 
-import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.*
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
-import androidx.compose.animation.togetherWith
 import com.gub.core.ui.components.NavigationSidebar
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -58,7 +55,30 @@ fun TrafficManagementApp() {
             ) {
 
                 AnimatedContent(
-                    targetState = selectedTab
+                    targetState = selectedTab,
+                    transitionSpec = {
+                        // Slide left/right based on ordinal comparison
+                        val direction = targetState.ordinal - initialState.ordinal
+                        val slideIn = if (direction > 0) slideInHorizontally(
+                            animationSpec = tween(300),
+                            initialOffsetX = { fullWidth -> fullWidth }
+                        ) else slideInHorizontally(
+                            animationSpec = tween(300),
+                            initialOffsetX = { fullWidth -> -fullWidth }
+                        )
+
+                        val slideOut = if (direction > 0) slideOutHorizontally(
+                            animationSpec = tween(300),
+                            targetOffsetX = { fullWidth -> -fullWidth }
+                        ) else slideOutHorizontally(
+                            animationSpec = tween(300),
+                            targetOffsetX = { fullWidth -> fullWidth }
+                        )
+
+                        slideIn + fadeIn(animationSpec = tween(300)) togetherWith
+                        slideOut + fadeOut(animationSpec = tween(300))
+                    },
+                    label = "TabPageTransition"
                 ) {
                     when(it) {
                         Navigation.DASHBOARD -> Dashboard()
