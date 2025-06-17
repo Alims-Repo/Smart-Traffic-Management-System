@@ -92,7 +92,7 @@ fun NavigationSidebar(
                 .fillMaxWidth()
                 .padding(bottom = 24.dp),
             colors = CardDefaults.cardColors(
-                containerColor = if (isAiEnabled) Color(0xFF1B5E20) else Color(0xFF424242)
+                containerColor = if (isAiEnabled) Color(0xFF1B5E20).copy(0.5F) else Color(0xFF424242)
             )
         ) {
             Row(
