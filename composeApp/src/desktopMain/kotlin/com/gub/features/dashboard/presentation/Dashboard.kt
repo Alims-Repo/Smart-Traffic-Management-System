@@ -25,6 +25,7 @@ import com.gub.core.ui.components.PulsingDot
 import com.gub.features.dashboard.presentation.components.TopBar
 import com.gub.features.dashboard.presentation.liveStatus.LiveStatus
 import com.gub.features.dashboard.presentation.overview.Overview
+import com.gub.features.dashboard.presentation.quickAction.QuickActionsGrid
 import com.gub.utils.UiCalculations.toDp
 import dev.chrisbanes.haze.rememberHazeState
 
@@ -117,6 +118,7 @@ fun Dashboard() {
         when(it) {
             0 -> Overview(hazeState, height.toDp())
             1 -> LiveStatus(hazeState, height.toDp())
+            2 -> QuickActionsGrid(hazeState, height.toDp())
         }
     }
 
@@ -714,176 +716,6 @@ fun OptimizationItem(title: String, location: String, progress: Int, eta: String
                     .fillMaxHeight()
                     .fillMaxWidth(progress / 100f)
                     .background(Color(0xFF4CAF50), RoundedCornerShape(2.dp))
-            )
-        }
-    }
-}
-
-@Composable
-fun QuickActionsGrid() {
-    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-        Text(
-            "Quick Actions",
-            color = Color.White,
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold
-        )
-
-        // Emergency Actions
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(containerColor = Color(0xFF161B22)),
-            shape = RoundedCornerShape(12.dp)
-        ) {
-            Column(modifier = Modifier.padding(20.dp)) {
-                Text(
-                    "Emergency Controls",
-                    color = Color.White,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    QuickActionButton(
-                        title = "Emergency Mode",
-                        icon = Icons.Default.Warning,
-                        color = Color(0xFFF44336),
-                        modifier = Modifier.weight(1f)
-                    )
-                    QuickActionButton(
-                        title = "All Red Signals",
-                        icon = Icons.Default.StopCircle,
-                        color = Color(0xFFF44336),
-                        modifier = Modifier.weight(1f)
-                    )
-                    QuickActionButton(
-                        title = "Priority Route",
-                        icon = Icons.Default.LocalHospital,
-                        color = Color(0xFFFF9800),
-                        modifier = Modifier.weight(1f)
-                    )
-                }
-            }
-        }
-
-        // System Controls
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(containerColor = Color(0xFF161B22)),
-            shape = RoundedCornerShape(12.dp)
-        ) {
-            Column(modifier = Modifier.padding(20.dp)) {
-                Text(
-                    "System Controls",
-                    color = Color.White,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    QuickActionButton(
-                        title = "AI Optimization",
-                        icon = Icons.Default.Psychology,
-                        color = Color(0xFF4CAF50),
-                        modifier = Modifier.weight(1f)
-                    )
-                    QuickActionButton(
-                        title = "Manual Override",
-                        icon = Icons.Default.Settings,
-                        color = Color(0xFF2196F3),
-                        modifier = Modifier.weight(1f)
-                    )
-                    QuickActionButton(
-                        title = "System Reset",
-                        icon = Icons.Default.RestartAlt,
-                        color = Color(0xFFFF9800),
-                        modifier = Modifier.weight(1f)
-                    )
-                }
-            }
-        }
-
-        // Reports & Analytics
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(containerColor = Color(0xFF161B22)),
-            shape = RoundedCornerShape(12.dp)
-        ) {
-            Column(modifier = Modifier.padding(20.dp)) {
-                Text(
-                    "Reports & Analytics",
-                    color = Color.White,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    QuickActionButton(
-                        title = "Generate Report",
-                        icon = Icons.Default.Assessment,
-                        color = Color(0xFF9C27B0),
-                        modifier = Modifier.weight(1f)
-                    )
-                    QuickActionButton(
-                        title = "Export Data",
-                        icon = Icons.Default.FileDownload,
-                        color = Color(0xFF607D8B),
-                        modifier = Modifier.weight(1f)
-                    )
-                    QuickActionButton(
-                        title = "Schedule Analysis",
-                        icon = Icons.Default.Schedule,
-                        color = Color(0xFF795548),
-                        modifier = Modifier.weight(1f)
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun QuickActionButton(title: String, icon: ImageVector, color: Color, modifier: Modifier = Modifier) {
-    Card(
-        modifier = modifier
-            .height(100.dp)
-            .clickable { },
-        colors = CardDefaults.cardColors(containerColor = color.copy(alpha = 0.1f)),
-        shape = RoundedCornerShape(8.dp),
-        border = BorderStroke(1.dp, color.copy(alpha = 0.3f))
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(12.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Icon(
-                icon,
-                contentDescription = null,
-                tint = color,
-                modifier = Modifier.size(24.dp)
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                title,
-                color = Color.White,
-                fontSize = 11.sp,
-                fontWeight = FontWeight.Medium,
-                textAlign = TextAlign.Center
             )
         }
     }
