@@ -49,13 +49,14 @@ fun main() = application {
         ),
         resizable = true
     ) {
-        VehicleDetectionTheme {
-            Surface(
-                modifier = Modifier.fillMaxSize(),
-                color = MaterialTheme.colorScheme.background
-            ) {
-                VehicleDetectionApp(repository = repository)
-            }
-        }
+//        VehicleDetectionTheme {
+//            Surface(
+//                modifier = Modifier.fillMaxSize(),
+//                color = MaterialTheme.colorScheme.background
+//            ) {
+//                VehicleDetectionApp(repository = repository)
+//            }
+//        }
+        TrafficManagementApp()
     }
 }
