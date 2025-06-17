@@ -125,7 +125,7 @@ fun TopBar(hazeState: HazeState, selectedTab: Int, onSelect: (Int) -> Unit, topB
                             },
                     selected = selectedTab == index,
                     colors = FilterChipDefaults.filterChipColors(
-                        selectedContainerColor = Color(0xFF1976D2),
+                        selectedContainerColor = Color(0xFF4CAF50),
                         containerColor = Color(0xFF161B22)
                     )
                 )
