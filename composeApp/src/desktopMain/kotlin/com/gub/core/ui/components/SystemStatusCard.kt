@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -13,9 +14,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.gub.app.ModelSystemStatus
+import com.gub.core.domain.Response
 
 @Composable
-fun SystemStatusCard() {
+fun SystemStatusCard(response : Response<ModelSystemStatus>) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = Color(0xFF0D1117))
@@ -28,10 +31,20 @@ fun SystemStatusCard() {
                 fontSize = 14.sp
             )
             Spacer(modifier = Modifier.height(8.dp))
-            StatusItem("CPU", "23%", Color(0xFF4CAF50))
-            StatusItem("GPU", "71%", Color(0xFFFF9800))
-            StatusItem("Memory", "67%", Color(0xFFFF9800))
-            StatusItem("Network", "Active", Color(0xFF4CAF50))
+            when(response) {
+                Response.Loading -> {
+                    CircularProgressIndicator()
+                }
+                is Response.Error -> {
+                    Text(response.error)
+                }
+                is Response.Success -> {
+                    StatusItem("CPU", "${response.data.cpu}%", Color(0xFF4CAF50))
+                    StatusItem("GPU", "${response.data.gpu}%", Color(0xFFFF9800))
+                    StatusItem("Memory", "${response.data.memory}%", Color(0xFFFF9800))
+                    StatusItem("Network", "${response.data.network}%", Color(0xFF4CAF50))
+                }
+            }
         }
     }
 }

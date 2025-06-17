@@ -1,8 +1,11 @@
 package com.gub.core.ui.components
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
@@ -13,7 +16,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -21,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.gub.app.ViewModelSystem
 import com.gub.core.ui.model.NavItem
 import com.gub.core.ui.model.Navigation
 
@@ -37,6 +41,10 @@ fun NavigationSidebar(
         NavItem("Analytics", Icons.Default.Analytics, Navigation.ANALYTICS),
         NavItem("Settings", Icons.Default.Settings, Navigation.SETTINGS)
     )
+
+    val viewModelSystem by remember { mutableStateOf(ViewModelSystem()) }
+
+    val systemStatus = viewModelSystem.systemStatus.collectAsState()
 
     Column(
         modifier = Modifier
@@ -119,19 +127,20 @@ fun NavigationSidebar(
             }
         }
 
-        // Navigation Items
-        navItems.forEach { item ->
-            NavigationItem(
-                item = item,
-                selected = selectedTab == item.index,
-                onClick = { onTabSelected(item.index) }
-            )
+        LazyColumn(
+            modifier = Modifier.fillMaxWidth()
+                .weight(1F)
+        ) {
+            items(navItems) { item->
+                NavigationItem(
+                    item = item,
+                    selected = selectedTab == item.index,
+                    onClick = { onTabSelected(item.index) }
+                )
+            }
         }
 
-        Spacer(modifier = Modifier.weight(1f))
-
-        // System Status
-        SystemStatusCard()
+        SystemStatusCard(systemStatus.value)
     }
 }
 
