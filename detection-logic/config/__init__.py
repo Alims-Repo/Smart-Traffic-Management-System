@@ -1,0 +1,1 @@
+"""Configuration package for M1 Vehicle Detection Server"""
