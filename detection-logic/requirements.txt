@@ -1,0 +1,20 @@
+# Core dependencies
+aiohttp>=3.10.11
+opencv-python>=4.8.0
+numpy>=1.24.0
+
+# M1 optimized PyTorch
+torch>=2.7.1
+torchvision>=0.16.0
+
+# YOLO and AI
+ultralytics>=8.0.0
+
+# Development tools
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
+flake8>=6.0.0
+
+# Optional performance monitoring
+psutil>=5.9.0
