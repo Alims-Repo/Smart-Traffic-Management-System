@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "gradle",
+            "name": "Frontend",
+            "tasks": ["desktopRun"],
+            "args": ["-DmainClass=com.gub.app.MainKt", "--quiet", "-p", "$PROJECT_DIR$/composeApp"],
+            "initScripts": {
+                "flmapper": "ext.mapPath = { path -> path }"
+            },
+            "workingDir": "$PROJECT_DIR$"
+        }
+    ]
+}
+
