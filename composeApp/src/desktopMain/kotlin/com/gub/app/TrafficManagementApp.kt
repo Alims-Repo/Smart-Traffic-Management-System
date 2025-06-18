@@ -45,12 +45,15 @@ fun TrafficManagementApp() {
                 modifier = Modifier
                     .fillMaxSize()
                     .background(
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                Color(0xFF0D1117),
-                                Color(0xFF161B22)
-                            )
-                        )
+//                        brush = Brush.verticalGradient(
+//                            colors = listOf(
+////                                Color(0xFF0D1117),
+////                                Color(0xFF161B22)
+//                                MaterialTheme.colorScheme.surface,
+//                                MaterialTheme.colorScheme.surfaceVariant
+//                            )
+//                        )
+                        color = MaterialTheme.colorScheme.surfaceVariant
                     )
             ) {
 

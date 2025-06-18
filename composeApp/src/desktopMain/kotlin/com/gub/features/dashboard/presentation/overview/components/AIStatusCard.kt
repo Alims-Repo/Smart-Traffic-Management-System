@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.sp
 fun AIStatusCard(modifier: Modifier = Modifier) {
     Card(
         modifier = modifier,
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF161B22)),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         shape = RoundedCornerShape(12.dp)
     ) {
         Column(
@@ -32,24 +32,24 @@ fun AIStatusCard(modifier: Modifier = Modifier) {
                     Icon(
                         Icons.Default.Psychology,
                         contentDescription = null,
-                        tint = Color(0xFF4CAF50),
+                        tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(20.dp)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         "AI Control System",
-                        color = Color.White,
+                        color = MaterialTheme.colorScheme.onSurface,
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Bold
                     )
                 }
 
                 Card(
-                    colors = CardDefaults.cardColors(containerColor = Color(0xFF1B5E20))
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
                 ) {
                     Text(
                         "ACTIVE",
-                        color = Color.White,
+                        color = MaterialTheme.colorScheme.onPrimary,
                         fontSize = 8.sp,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
@@ -84,7 +84,7 @@ fun AIStatusCard(modifier: Modifier = Modifier) {
                     ) {
                         Text(
                             "97.1%",
-                            color = Color.White,
+                            color = MaterialTheme.colorScheme.onSurface,
                             fontSize = 16.sp,
                             lineHeight = 16.sp,
                             fontWeight = FontWeight.Bold
@@ -92,7 +92,7 @@ fun AIStatusCard(modifier: Modifier = Modifier) {
                         Spacer(modifier = Modifier.size(4.dp))
                         Text(
                             "Efficiency",
-                            color = Color.Gray,
+                            color = MaterialTheme.colorScheme.onSurface.copy(0.75f),
                             fontSize = 10.sp,
                             lineHeight = 10.sp
                         )
@@ -110,7 +110,7 @@ fun AIStatusCard(modifier: Modifier = Modifier) {
 
             Text(
                 "Last optimization: 3 minutes ago",
-                color = Color.Gray,
+                color = MaterialTheme.colorScheme.onSurface.copy(0.75f),
                 fontSize = 10.sp,
                 style = androidx.compose.ui.text.TextStyle(
                     fontStyle = androidx.compose.ui.text.font.FontStyle.Italic

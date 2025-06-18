@@ -6,6 +6,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,7 +20,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun UserProfileChip() {
     Card(
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF21262D)),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary.copy(0.25F)),
         shape = RoundedCornerShape(20.dp)
     ) {
         Row(
@@ -31,14 +32,17 @@ fun UserProfileChip() {
                     .size(20.dp)
                     .background(
                         brush = Brush.radialGradient(
-                            colors = listOf(Color(0xFF4CAF50), Color(0xFF2E7D32))
+                            colors = listOf(
+                                MaterialTheme.colorScheme.primary.copy(0.25F),
+                                MaterialTheme.colorScheme.primary
+                            )
                         ),
                         shape = CircleShape
                     )
             ) {
                 Text(
                     "A",
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onPrimary,
                     fontSize = 10.sp,
                     lineHeight = 10.sp,
                     fontWeight = FontWeight.Bold,
@@ -48,7 +52,7 @@ fun UserProfileChip() {
             Spacer(modifier = Modifier.width(6.dp))
             Text(
                 "Alims-Repo",
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontSize = 11.sp,
                 fontWeight = FontWeight.Medium
             )

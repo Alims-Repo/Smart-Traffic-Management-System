@@ -6,6 +6,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,13 +22,15 @@ import com.gub.core.domain.Response
 fun SystemStatusCard(response : Response<ModelSystemStatus>) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF0D1117))
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primary.copy(0.1F)
+        )
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
                 "System Status",
                 fontWeight = FontWeight.Bold,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontSize = 14.sp
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -66,7 +69,7 @@ fun StatusItem(label: String, value: String, color: Color) {
                     .background(color, CircleShape)
             )
             Spacer(modifier = Modifier.width(4.dp))
-            Text(value, color = Color.White, fontSize = 12.sp)
+            Text(value, color = MaterialTheme.colorScheme.onSurface, fontSize = 12.sp)
         }
     }
 }

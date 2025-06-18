@@ -39,10 +39,10 @@ fun TopBar(hazeState: HazeState, selectedTab: Int, onSelect: (Int) -> Unit, topB
                 preferPerformance = true
             )
         }.background(
-           color = MaterialTheme.colorScheme.background.copy(0.5F)
+           color = MaterialTheme.colorScheme.surface.copy(0.5F)
         ).onGloballyPositioned { coordinates ->
             topBarHeight(coordinates.size.height)
-        }.padding(24.dp)
+        }.padding(horizontal = 24.dp, vertical = 16.dp)
     ) {
         // Dashboard Header
         Row(
@@ -55,7 +55,7 @@ fun TopBar(hazeState: HazeState, selectedTab: Int, onSelect: (Int) -> Unit, topB
                     text = "Traffic Control Dashboard",
                     fontSize = 28.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color.White
+                    color = MaterialTheme.colorScheme.onSurface
                 )
 
                 Row(
@@ -65,19 +65,19 @@ fun TopBar(hazeState: HazeState, selectedTab: Int, onSelect: (Int) -> Unit, topB
                     Text(
                         "Welcome back, Alims-Repo",
                         fontSize = 14.sp,
-                        color = Color.Gray
+                        color = MaterialTheme.colorScheme.onSurface.copy(0.5f)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         "•",
-                        color = Color.Gray,
+                        color = MaterialTheme.colorScheme.onSurface.copy(0.5f),
                         fontSize = 12.sp
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         currentTime,
                         fontSize = 11.sp,
-                        color = Color.Gray
+                        color = MaterialTheme.colorScheme.onSurface.copy(0.5f)
                     )
                 }
             }
@@ -100,8 +100,8 @@ fun TopBar(hazeState: HazeState, selectedTab: Int, onSelect: (Int) -> Unit, topB
                             },
                             selected = selectedTimeFrame == index,
                             colors = FilterChipDefaults.filterChipColors(
-                                selectedContainerColor = Color(0xFF2E7D32),
-                                containerColor = Color(0xFF161B22)
+                                selectedContainerColor = MaterialTheme.colorScheme.primary,
+                                containerColor = MaterialTheme.colorScheme.primary.copy(0.1F) //Color(0xFF161B22)
                             )
                         )
                     }
@@ -125,13 +125,15 @@ fun TopBar(hazeState: HazeState, selectedTab: Int, onSelect: (Int) -> Unit, topB
                         Text(
                             tab,
                             fontSize = 12.sp,
-                            color = if (selectedTab == index) Color.White else Color.Gray
+                            color = if (selectedTab == index)
+                                MaterialTheme.colorScheme.onPrimary
+                            else Color.Gray
                         )
-                            },
+                    },
                     selected = selectedTab == index,
                     colors = FilterChipDefaults.filterChipColors(
-                        selectedContainerColor = Color(0xFF4CAF50),
-                        containerColor = Color(0xFF161B22)
+                        selectedContainerColor = MaterialTheme.colorScheme.primary,
+                        containerColor = MaterialTheme.colorScheme.primary.copy(0.1F) //Color(0xFF161B22)
                     )
                 )
             }

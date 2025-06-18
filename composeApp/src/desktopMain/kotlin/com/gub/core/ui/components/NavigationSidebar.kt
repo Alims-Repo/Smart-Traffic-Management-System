@@ -45,8 +45,9 @@ fun NavigationSidebar(
         modifier = Modifier
             .width(260.dp)
             .fillMaxHeight()
-            .background(Color(0xFF21262D))
-            .padding(16.dp)
+            .background(
+                color = MaterialTheme.colorScheme.surface
+            ).padding(16.dp)
     ) {
         
         Row(
@@ -57,16 +58,14 @@ fun NavigationSidebar(
                 modifier = Modifier
                     .size(40.dp)
                     .background(
-                        brush = Brush.radialGradient(
-                            colors = listOf(Color(0xFF4CAF50), Color(0xFF2E7D32))
-                        ),
+                        color = MaterialTheme.colorScheme.background,
                         shape = CircleShape
                     )
             ) {
                 Icon(
                     Icons.Default.Traffic,
                     contentDescription = null,
-                    tint = Color.White,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier
                         .size(24.dp)
                         .align(Alignment.Center)
@@ -77,7 +76,7 @@ fun NavigationSidebar(
                 "Traffic AI",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.White
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
 
@@ -87,7 +86,9 @@ fun NavigationSidebar(
                 .fillMaxWidth()
                 .padding(bottom = 24.dp),
             colors = CardDefaults.cardColors(
-                containerColor = if (isAiEnabled) Color(0xFF1B5E20).copy(0.5F) else Color(0xFF424242)
+                containerColor = if (isAiEnabled)
+                    MaterialTheme.colorScheme.primary.copy(0.5F)
+                else MaterialTheme.colorScheme.primary.copy(0.1F)
             )
         ) {
             Row(
@@ -101,23 +102,19 @@ fun NavigationSidebar(
                     Icons.Default.Psychology,
                     contentDescription = null,
                     tint = if (isAiEnabled)
-                        Color(0xFF4CAF50)
-                    else Color.Gray
+                        MaterialTheme.colorScheme.primary
+                    else MaterialTheme.colorScheme.primary.copy(0.5F)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     "AI Control",
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     fontWeight = FontWeight.Medium
                 )
                 Spacer(modifier = Modifier.weight(1f))
                 Switch(
                     checked = isAiEnabled,
-                    onCheckedChange = onAiToggle,
-                    colors = SwitchDefaults.colors(
-                        checkedThumbColor = Color(0xFF4CAF50),
-                        checkedTrackColor = Color(0xFF1B5E20)
-                    )
+                    onCheckedChange = onAiToggle
                 )
             }
         }
@@ -151,7 +148,9 @@ fun NavigationItem(
             .padding(vertical = 4.dp)
             .clickable { onClick() },
         colors = CardDefaults.cardColors(
-            containerColor = if (selected) Color(0xFF2E7D32) else Color.Transparent
+            containerColor = if (selected)
+                MaterialTheme.colorScheme.primary
+            else Color.Transparent
         ),
         shape = RoundedCornerShape(8.dp)
     ) {
@@ -162,12 +161,12 @@ fun NavigationItem(
             Icon(
                 item.icon,
                 contentDescription = item.title,
-                tint = if (selected) Color.White else Color.Gray
+                tint = if (selected) MaterialTheme.colorScheme.onPrimary else Color.Gray
             )
             Spacer(modifier = Modifier.width(12.dp))
             Text(
                 item.title,
-                color = if (selected) Color.White else Color.Gray,
+                color = if (selected) MaterialTheme.colorScheme.onPrimary else Color.Gray,
                 fontWeight = if (selected) FontWeight.Medium else FontWeight.Normal
             )
         }

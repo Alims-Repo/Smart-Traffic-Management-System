@@ -129,93 +129,6 @@ fun Dashboard() {
     )
 }
 
-@Composable
-fun SystemOverviewCard() {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF161B22)),
-        shape = RoundedCornerShape(12.dp)
-    ) {
-        Column(
-            modifier = Modifier.padding(20.dp)
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    "System Overview",
-                    color = Color.White,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
-                )
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        Icons.Default.Dashboard,
-                        contentDescription = null,
-                        tint = Color(0xFF4CAF50),
-                        modifier = Modifier.size(20.dp)
-                    )
-                    Spacer(modifier = Modifier.width(4.dp))
-                    Text(
-                        "16:28:43",
-                        color = Color.Gray,
-                        fontSize = 12.sp
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly
-            ) {
-                SystemOverviewMetric(
-                    title = "System Health",
-                    value = "98.7%",
-                    subtitle = "Excellent",
-                    color = Color(0xFF4CAF50),
-                    icon = Icons.Default.CheckCircle
-                )
-
-                SystemOverviewMetric(
-                    title = "Active Intersections",
-                    value = "247/250",
-                    subtitle = "99.2% Online",
-                    color = Color(0xFF4CAF50),
-                    icon = Icons.Default.Traffic
-                )
-
-                SystemOverviewMetric(
-                    title = "AI Performance",
-                    value = "97.1%",
-                    subtitle = "Optimal",
-                    color = Color(0xFF4CAF50),
-                    icon = Icons.Default.Psychology
-                )
-
-                SystemOverviewMetric(
-                    title = "Current Flow",
-                    value = "2,847",
-                    subtitle = "vehicles/hr",
-                    color = Color(0xFF2196F3),
-                    icon = Icons.Default.DirectionsCar
-                )
-
-                SystemOverviewMetric(
-                    title = "Avg Wait Time",
-                    value = "31.2s",
-                    subtitle = "↓ 18% today",
-                    color = Color(0xFF4CAF50),
-                    icon = Icons.Default.Timer
-                )
-            }
-        }
-    }
-}
 
 @Composable
 fun SystemOverviewMetric(
@@ -262,7 +175,7 @@ fun SystemOverviewMetric(
 fun LiveTrafficMetricsCard(modifier: Modifier = Modifier) {
     Card(
         modifier = modifier,
-        colors = CardDefaults.cardColors(containerColor = Color(0xFF161B22)),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         shape = RoundedCornerShape(12.dp)
     ) {
         Column(
@@ -275,17 +188,17 @@ fun LiveTrafficMetricsCard(modifier: Modifier = Modifier) {
             ) {
                 Text(
                     "Live Traffic Metrics",
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onSurface,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold
                 )
 
                 Card(
-                    colors = CardDefaults.cardColors(containerColor = Color(0xFF1B5E20))
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
                 ) {
                     Text(
                         "REAL-TIME",
-                        color = Color.White,
+                        color = MaterialTheme.colorScheme.onPrimary,
                         fontSize = 8.sp,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
@@ -303,7 +216,7 @@ fun LiveTrafficMetricsCard(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.height(12.dp))
 
             Card(
-                colors = CardDefaults.cardColors(containerColor = Color(0xFF0D1117))
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary.copy(0.1F))
             ) {
                 Row(
                     modifier = Modifier
