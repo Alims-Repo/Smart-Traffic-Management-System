@@ -14,7 +14,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -28,7 +27,8 @@ fun NavigationSidebar(
     selectedTab: Navigation,
     onTabSelected: (Navigation) -> Unit,
     isAiEnabled: Boolean,
-    onAiToggle: (Boolean) -> Unit
+    onAiToggle: (Boolean) -> Unit,
+    viewModel: ViewModelSystem
 ) {
     val navItems = listOf(
         NavItem("Dashboard", Icons.Default.Dashboard, Navigation.DASHBOARD),
@@ -37,9 +37,7 @@ fun NavigationSidebar(
         NavItem("Settings", Icons.Default.Settings, Navigation.SETTINGS)
     )
 
-    val viewModelSystem by remember { mutableStateOf(ViewModelSystem()) }
-
-    val systemStatus = viewModelSystem.systemStatus.collectAsState()
+    val systemStatus = viewModel.systemStatus.collectAsState()
 
     Column(
         modifier = Modifier

@@ -24,91 +24,18 @@ import com.gub.features.dashboard.presentation.insights.UserInsightsDashboardCar
 import com.gub.features.dashboard.presentation.liveStatus.LiveStatus
 import com.gub.features.dashboard.presentation.overview.Overview
 import com.gub.features.dashboard.presentation.quickAction.QuickActionsGrid
+import com.gub.features.dashboard.viewmodel.ViewModelDashboard
 import com.gub.utils.UiCalculations.toDp
 import dev.chrisbanes.haze.rememberHazeState
 
 @Composable
 fun Dashboard() {
-    var selectedTab by remember { mutableStateOf(0) }
-    var showQuickActions by remember { mutableStateOf(false) }
-    var selectedTimeFrame by remember { mutableStateOf(0) }
-    
-    val currentTime = "2025-06-17 16:28:43 UTC"
-    val dashboardTabs = listOf("Overview", "Live Status", "Quick Actions", "Insights")
-    val timeFrames = listOf("Real-time", "Last Hour", "Last 6H", "Today")
 
-    var height by remember { mutableStateOf(0) }
     val hazeState = rememberHazeState()
+    var height by remember { mutableStateOf(0) }
+    var selectedTab by remember { mutableStateOf(0) }
 
-//    LazyColumn(
-//        modifier = Modifier.hazeSource(hazeState),
-//        verticalArrangement = Arrangement.spacedBy(16.dp),
-//        contentPadding = PaddingValues(top = height.toDp() + 8.dp, start = 24.dp, end = 24.dp, bottom = 24.dp)
-//    ) {
-//
-//        // Dashboard Content based on selected tab
-//        when (selectedTab) {
-//            0 -> { // Overview
-//                item { SystemOverviewCard() }
-//                item {
-//                    Row(
-//                        modifier = Modifier.fillMaxWidth(),
-//                        horizontalArrangement = Arrangement.spacedBy(16.dp)
-//                    ) {
-//                        LiveTrafficMetricsCard(modifier = Modifier.weight(1f))
-//                        AIStatusCard(modifier = Modifier.weight(1f))
-//                    }
-//                }
-//                item {
-//                    Row(
-//                        modifier = Modifier.fillMaxWidth(),
-//                        horizontalArrangement = Arrangement.spacedBy(16.dp)
-//                    ) {
-//                        RecentAlertsCard(modifier = Modifier.weight(1f))
-//                        TopPerformingIntersectionsCard(modifier = Modifier.weight(1f))
-//                    }
-//                }
-//                item { TodaysActivitySummaryCard() }
-//            }
-//            1 -> { // Live Status
-//                item { LiveSystemStatusCard() }
-//                item {
-//                    Row(
-//                        modifier = Modifier.fillMaxWidth(),
-//                        horizontalArrangement = Arrangement.spacedBy(16.dp)
-//                    ) {
-//                        RealTimeTrafficFlowCard(modifier = Modifier.weight(0.6f))
-//                        ActiveIncidentsCard(modifier = Modifier.weight(0.4f))
-//                    }
-//                }
-//                item {
-//                    Row(
-//                        modifier = Modifier.fillMaxWidth(),
-//                        horizontalArrangement = Arrangement.spacedBy(16.dp)
-//                    ) {
-//                        LiveIntersectionRankingCard()
-//                        LiveIntersectionMapCard(modifier = Modifier.weight(1f))
-//                        CurrentOptimizationsCard(modifier = Modifier.weight(1f))
-//                    }
-//                }
-//            }
-//            2 -> { // Quick Actions
-//                item { QuickActionsGrid() }
-//            }
-//            3 -> { // Insights
-//                item { UserInsightsDashboardCard() }
-//                item {
-//                    Row(
-//                        modifier = Modifier.fillMaxWidth(),
-//                        horizontalArrangement = Arrangement.spacedBy(16.dp)
-//                    ) {
-//                        PredictiveInsightsCard(modifier = Modifier.weight(1f))
-//                        PerformanceTrendsCard(modifier = Modifier.weight(1f))
-//                    }
-//                }
-//            }
-//        }
-//    }
+//    val viewModelDashboard by remember { mutableStateOf(ViewModelDashboard()) }
 
     AnimatedContent(
         targetState = selectedTab

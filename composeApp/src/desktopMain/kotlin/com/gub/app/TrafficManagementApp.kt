@@ -10,7 +10,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
@@ -32,11 +31,13 @@ fun TrafficManagementApp() {
     ) {
         var aiEnabled  by remember { mutableStateOf(true) }
         var selectedTab by remember { mutableStateOf(Navigation.DASHBOARD) }
+        val viewModelSystem by remember { mutableStateOf(ViewModelSystem()) }
 
         Row(modifier = Modifier.fillMaxSize()) {
             NavigationSidebar(
                 selectedTab = selectedTab,
                 isAiEnabled = aiEnabled,
+                viewModel = viewModelSystem,
                 onTabSelected = { selectedTab = it },
                 onAiToggle = { aiEnabled = it }
             )

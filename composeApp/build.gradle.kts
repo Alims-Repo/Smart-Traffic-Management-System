@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
+    kotlin("plugin.serialization") version "2.1.21"
 }
 
 kotlin {
@@ -55,6 +56,9 @@ kotlin {
             implementation("org.openjfx:javafx-media:19")
             implementation("org.openjfx:javafx-web:19")
             implementation("org.openjfx:javafx-swing:19")
+
+            // WebSocket client
+            implementation("org.java-websocket:Java-WebSocket:1.5.3")
 
             // Logging
             implementation("ch.qos.logback:logback-classic:1.4.11")

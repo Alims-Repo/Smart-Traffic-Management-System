@@ -1,19 +1,16 @@
-package com.gub.app
+package com.gub.features.dashboard.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gub.core.domain.Response
 import com.gub.features.dashboard.data.repository.SystemStatusWebSocket
 import com.gub.models.ModelSystemStatus
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlin.random.Random
-import kotlin.random.nextInt
 
-class ViewModelSystem : ViewModel() {
+class ViewModelDashboard : ViewModel() {
 
     private val _systemStatus = MutableStateFlow<Response<ModelSystemStatus>>(Response.Loading)
     val systemStatus : StateFlow<Response<ModelSystemStatus>> = _systemStatus.asStateFlow()

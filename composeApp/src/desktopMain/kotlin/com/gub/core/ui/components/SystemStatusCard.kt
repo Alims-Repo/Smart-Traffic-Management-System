@@ -15,8 +15,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.gub.app.ModelSystemStatus
 import com.gub.core.domain.Response
+import com.gub.models.ModelSystemStatus
 
 @Composable
 fun SystemStatusCard(response : Response<ModelSystemStatus>) {
@@ -42,10 +42,12 @@ fun SystemStatusCard(response : Response<ModelSystemStatus>) {
                     Text(response.error)
                 }
                 is Response.Success -> {
-                    StatusItem("CPU", "${response.data.cpu}%", Color(0xFF4CAF50))
-                    StatusItem("GPU", "${response.data.gpu}%", Color(0xFFFF9800))
-                    StatusItem("Memory", "${response.data.memory}%", Color(0xFFFF9800))
-                    StatusItem("Network", "${response.data.network}%", Color(0xFF4CAF50))
+                    StatusItem("CPU", "${response.data.cpuUsage}%", Color(0xFF4CAF50))
+//                    StatusItem("GPU", "${response.data.gpu}%", Color(0xFFFF9800))
+
+//                    StatusItem("Network", "${response.data.network}%", Color(0xFF4CAF50))
+                    val memoryUsages = (response.data.usedMemoryMb * 100) / response.data.totalMemoryMb
+                    StatusItem("Memory", "$memoryUsages%", Color(0xFFFF9800))
                 }
             }
         }
