@@ -2,12 +2,19 @@
     "configurations": [
         {
             "type": "gradle",
-            "name": "Frontend",
+            "name": "Dashboard",
             "tasks": ["desktopRun"],
             "args": ["-DmainClass=com.gub.app.MainKt", "--quiet", "-p", "$PROJECT_DIR$/composeApp"],
             "initScripts": {
                 "flmapper": "ext.mapPath = { path -> path }"
             },
+            "workingDir": "$PROJECT_DIR$"
+        },
+        {
+            "type": "gradle",
+            "name": "Ktor Server",
+            "tasks": ["run"],
+            "args": ["-DmainClass=com.gub.application.ApplicationKt", "--quiet", "-p", "$PROJECT_DIR$/server"],
             "workingDir": "$PROJECT_DIR$"
         }
     ]

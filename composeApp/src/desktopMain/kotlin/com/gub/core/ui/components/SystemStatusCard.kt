@@ -42,12 +42,19 @@ fun SystemStatusCard(response : Response<ModelSystemStatus>) {
                     Text(response.error)
                 }
                 is Response.Success -> {
-                    StatusItem("CPU", "${response.data.cpuUsage}%", Color(0xFF4CAF50))
-//                    StatusItem("GPU", "${response.data.gpu}%", Color(0xFFFF9800))
-
-//                    StatusItem("Network", "${response.data.network}%", Color(0xFF4CAF50))
+                    StatusItem(
+                        label = "CPU", value = "${response.data.cpuUsage}%",
+                        color = if (response.data.cpuUsage > 80) Color(0xFFFF9800) else Color(0xFF4CAF50)
+                    )
                     val memoryUsages = (response.data.usedMemoryMb * 100) / response.data.totalMemoryMb
-                    StatusItem("Memory", "$memoryUsages%", Color(0xFFFF9800))
+                    StatusItem(
+                        label = "Memory", value = "$memoryUsages%",
+                        color = if (memoryUsages > 80) Color(0xFFFF9800) else Color(0xFF4CAF50)
+                    )
+                    StatusItem(
+                        label = "Latency", value = "${response.data.latencyMs}ms",
+                        color = if (response.data.latencyMs > 100) Color(0xFFFF9800) else Color(0xFF4CAF50)
+                    )
                 }
             }
         }
