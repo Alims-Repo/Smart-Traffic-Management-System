@@ -1,0 +1,1341 @@
+2025-06-18 17:16:19 | INFO     | vehicle_detection | 🚀 Vehicle Detection Server
+2025-06-18 17:16:19 | INFO     | vehicle_detection.app | 🌟 M1 Pro Vehicle Detection Server
+2025-06-18 17:16:19 | INFO     | vehicle_detection.app | ==================================================
+2025-06-18 17:16:19 | INFO     | vehicle_detection.app | 📍 URL: http://0.0.0.0:1234
+2025-06-18 17:16:19 | INFO     | vehicle_detection.app | 🎯 Vehicle Classes: car, truck, bus, motorcycle, bicycle
+2025-06-18 17:16:19 | INFO     | vehicle_detection.app | 🔧 Configuration: type
+2025-06-18 17:16:19 | INFO     | vehicle_detection.app | ==================================================
+2025-06-18 17:16:19 | INFO     | vehicle_detection.app | 🚀 Starting M1 Pro Vehicle Detection Server...
+2025-06-18 17:16:19 | INFO     | vehicle_detection.app | 📁 Video path: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection-logic/resources/1.mp4
+2025-06-18 17:16:19 | INFO     | vehicle_detection.app | 🎯 Target FPS: 30
+2025-06-18 17:16:19 | INFO     | vehicle_detection.app | 🔧 Debug mode: False
+2025-06-18 17:16:19 | INFO     | vehicle_detection.app | 🧠 Initializing AI model...
+2025-06-18 17:16:19 | INFO     | vehicle_detection.device_optimizer | 🚀 Starting device optimization...
+2025-06-18 17:16:19 | INFO     | vehicle_detection.device_optimizer | ✓ MPS optimizations applied
+2025-06-18 17:16:19 | INFO     | vehicle_detection.device_optimizer | 📋 Generated 4 test frames
+2025-06-18 17:16:19 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8n.pt
+2025-06-18 17:16:19 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-18 17:16:22 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.699s/frame (2.797s total)
+2025-06-18 17:16:22 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.015s/frame (0.059s total)
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8n.pt results:
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.699s (1.4 FPS)
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.015s (68.0 FPS)
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer | 🏆 New best: yolov8n.pt on CPU
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer | 🏆 New best: yolov8n.pt on MPS
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8s.pt
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.101s/frame (0.403s total)
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.029s/frame (0.115s total)
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8s.pt results:
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.101s (9.9 FPS)
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.029s (34.9 FPS)
+2025-06-18 17:16:23 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8m.pt
+2025-06-18 17:16:24 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-18 17:16:24 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.169s/frame (0.674s total)
+2025-06-18 17:16:24 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-18 17:16:25 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.037s/frame (0.149s total)
+2025-06-18 17:16:25 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8m.pt results:
+2025-06-18 17:16:25 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.169s (5.9 FPS)
+2025-06-18 17:16:25 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.037s (26.9 FPS)
+2025-06-18 17:16:25 | INFO     | vehicle_detection.device_optimizer | 🎯 Final Selection:
+2025-06-18 17:16:25 | INFO     | vehicle_detection.device_optimizer |    Model: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection-logic/model/yolov8n.pt
+2025-06-18 17:16:25 | INFO     | vehicle_detection.device_optimizer |    Device: MPS
+2025-06-18 17:16:25 | INFO     | vehicle_detection.device_optimizer |    Performance: 0.015s/frame (68.0 FPS)
+2025-06-18 17:16:25 | INFO     | vehicle_detection.device_optimizer | 📊 Complete benchmark results:
+2025-06-18 17:16:25 | INFO     | vehicle_detection.device_optimizer |    yolov8n.pt: CPU=1.4fps, MPS=68.0fps
+2025-06-18 17:16:25 | INFO     | vehicle_detection.device_optimizer |    yolov8s.pt: CPU=9.9fps, MPS=34.9fps
+2025-06-18 17:16:25 | INFO     | vehicle_detection.device_optimizer |    yolov8m.pt: CPU=5.9fps, MPS=26.9fps
+2025-06-18 17:16:25 | INFO     | vehicle_detection.app | 🔍 Setting up vehicle detector...
+2025-06-18 17:16:25 | INFO     | vehicle_detection.detector | 🔧 Detector initialized: MPS
+2025-06-18 17:16:25 | INFO     | vehicle_detection.detector | 📋 Vehicle classes: car, truck, bus, motorcycle, bicycle
+2025-06-18 17:16:25 | INFO     | vehicle_detection.app | 📡 Starting video broadcaster...
+2025-06-18 17:16:25 | INFO     | vehicle_detection.broadcaster | 📹 Video properties: 1280x720, 25.0fps, 7737 frames
+2025-06-18 17:16:25 | INFO     | vehicle_detection.broadcaster | 🎥 Broadcaster initialized: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection-logic/resources/1.mp4
+2025-06-18 17:16:25 | INFO     | vehicle_detection.broadcaster | 📊 Batch size: 2
+2025-06-18 17:16:25 | INFO     | vehicle_detection.broadcaster | ▶️  Broadcasting started
+2025-06-18 17:16:25 | INFO     | vehicle_detection.app | ✅ Server startup complete!
+2025-06-18 17:16:25 | INFO     | vehicle_detection.app | 🌐 Access the server at: http://0.0.0.0:1234
+2025-06-18 17:16:25 | INFO     | vehicle_detection.app | 🔗 WebSocket endpoint: ws://0.0.0.0:1234/ws
+2025-06-18 17:16:25 | INFO     | vehicle_detection.app | 📊 Health check: http://0.0.0.0:1234/health
+2025-06-18 17:16:25 | INFO     | vehicle_detection.app | 🎮 Control endpoints:
+2025-06-18 17:16:25 | INFO     | vehicle_detection.app |    • POST /control/playback - Video playback control
+2025-06-18 17:16:25 | INFO     | vehicle_detection.app |    • POST /control/detection - Detection settings
+2025-06-18 17:16:25 | INFO     | vehicle_detection.app |    • POST /control/broadcast - Broadcasting control
+2025-06-18 17:16:25 | INFO     | vehicle_detection.app |    • POST /control/device - Device switching
+2025-06-18 17:16:25 | INFO     | vehicle_detection.app |    • POST /config - Configuration updates
+2025-06-18 17:16:25 | INFO     | vehicle_detection.broadcaster | 🚀 Starting broadcast loop
+2025-06-18 17:16:25 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.244s for 2 frames
+2025-06-18 17:16:30 | INFO     | vehicle_detection.app | 📡 GET / from 127.0.0.1
+2025-06-18 17:16:30 | ERROR    | vehicle_detection.app | ❌ Request error on /: Not Found
+2025-06-18 17:16:30 | INFO     | vehicle_detection.app | 📤 GET / -> 500
+2025-06-18 17:16:30 | INFO     | vehicle_detection.app | 📡 GET /favicon.ico from 127.0.0.1
+2025-06-18 17:16:30 | ERROR    | vehicle_detection.app | ❌ Request error on /favicon.ico: Not Found
+2025-06-18 17:16:30 | INFO     | vehicle_detection.app | 📤 GET /favicon.ico -> 500
+2025-06-18 17:16:30 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 17:16:30 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 17:16:30 | INFO     | vehicle_detection.broadcaster |    Frames processed: 88
+2025-06-18 17:16:30 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 13
+2025-06-18 17:16:30 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 17:16:30 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 8.9
+2025-06-18 17:16:30 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 8.8
+2025-06-18 17:16:30 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.112s
+2025-06-18 17:16:30 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 24.2
+2025-06-18 17:16:35 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 17:16:35 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 17:16:35 | INFO     | vehicle_detection.broadcaster |    Frames processed: 190
+2025-06-18 17:16:35 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 15
+2025-06-18 17:16:35 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 17:16:35 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 9.7
+2025-06-18 17:16:35 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 9.5
+2025-06-18 17:16:35 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.104s
+2025-06-18 17:16:35 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 23.9
+2025-06-18 17:16:37 | INFO     | vehicle_detection.app | 🛑 Shutting down server...
+2025-06-18 17:16:37 | INFO     | vehicle_detection.broadcaster | ⏹️  Stopping broadcaster...
+2025-06-18 17:16:37 | INFO     | vehicle_detection.broadcaster | 🛑 Broadcast loop stopped
+2025-06-18 17:16:37 | INFO     | vehicle_detection.broadcaster | ✅ Broadcaster stopped
+2025-06-18 17:16:37 | INFO     | vehicle_detection.app | ✅ Server shutdown complete
+2025-06-18 19:26:07 | INFO     | vehicle_detection | 🚀 Vehicle Detection Server
+2025-06-18 19:26:07 | INFO     | vehicle_detection.app | 🌟 M1 Pro Vehicle Detection Server
+2025-06-18 19:26:07 | INFO     | vehicle_detection.app | ==================================================
+2025-06-18 19:26:07 | INFO     | vehicle_detection.app | 📍 URL: http://0.0.0.0:1234
+2025-06-18 19:26:07 | INFO     | vehicle_detection.app | 🎯 Vehicle Classes: car, truck, bus, motorcycle, bicycle
+2025-06-18 19:26:07 | INFO     | vehicle_detection.app | 🔧 Configuration: type
+2025-06-18 19:26:07 | INFO     | vehicle_detection.app | ==================================================
+2025-06-18 19:26:07 | INFO     | vehicle_detection.app | 🚀 Starting M1 Pro Vehicle Detection Server...
+2025-06-18 19:26:07 | INFO     | vehicle_detection.app | 📁 Video path: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection-logic/resources/1.mp4
+2025-06-18 19:26:07 | INFO     | vehicle_detection.app | 🎯 Target FPS: 30
+2025-06-18 19:26:07 | INFO     | vehicle_detection.app | 🔧 Debug mode: False
+2025-06-18 19:26:07 | INFO     | vehicle_detection.app | 🧠 Initializing AI model...
+2025-06-18 19:26:07 | INFO     | vehicle_detection.device_optimizer | 🚀 Starting device optimization...
+2025-06-18 19:26:07 | INFO     | vehicle_detection.device_optimizer | ✓ MPS optimizations applied
+2025-06-18 19:26:07 | INFO     | vehicle_detection.device_optimizer | 📋 Generated 4 test frames
+2025-06-18 19:26:07 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8n.pt
+2025-06-18 19:26:07 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-18 19:26:10 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.601s/frame (2.402s total)
+2025-06-18 19:26:10 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-18 19:26:11 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.025s/frame (0.100s total)
+2025-06-18 19:26:11 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8n.pt results:
+2025-06-18 19:26:11 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.601s (1.7 FPS)
+2025-06-18 19:26:11 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.025s (39.9 FPS)
+2025-06-18 19:26:11 | INFO     | vehicle_detection.device_optimizer | 🏆 New best: yolov8n.pt on CPU
+2025-06-18 19:26:11 | INFO     | vehicle_detection.device_optimizer | 🏆 New best: yolov8n.pt on MPS
+2025-06-18 19:26:11 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8s.pt
+2025-06-18 19:26:11 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-18 19:26:11 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.193s/frame (0.772s total)
+2025-06-18 19:26:11 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-18 19:26:12 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.029s/frame (0.114s total)
+2025-06-18 19:26:12 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8s.pt results:
+2025-06-18 19:26:12 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.193s (5.2 FPS)
+2025-06-18 19:26:12 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.029s (35.1 FPS)
+2025-06-18 19:26:12 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8m.pt
+2025-06-18 19:26:12 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.384s/frame (1.535s total)
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.041s/frame (0.162s total)
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8m.pt results:
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.384s (2.6 FPS)
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.041s (24.7 FPS)
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer | 🎯 Final Selection:
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer |    Model: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection-logic/model/yolov8n.pt
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer |    Device: MPS
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer |    Performance: 0.025s/frame (39.9 FPS)
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer | 📊 Complete benchmark results:
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer |    yolov8n.pt: CPU=1.7fps, MPS=39.9fps
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer |    yolov8s.pt: CPU=5.2fps, MPS=35.1fps
+2025-06-18 19:26:14 | INFO     | vehicle_detection.device_optimizer |    yolov8m.pt: CPU=2.6fps, MPS=24.7fps
+2025-06-18 19:26:14 | INFO     | vehicle_detection.app | 🔍 Setting up vehicle detector...
+2025-06-18 19:26:14 | INFO     | vehicle_detection.detector | 🔧 Detector initialized: MPS
+2025-06-18 19:26:14 | INFO     | vehicle_detection.detector | 📋 Vehicle classes: car, truck, bus, motorcycle, bicycle
+2025-06-18 19:26:14 | INFO     | vehicle_detection.app | 📡 Starting video broadcaster...
+2025-06-18 19:26:14 | INFO     | vehicle_detection.broadcaster | 📹 Video properties: 1280x720, 25.0fps, 7737 frames
+2025-06-18 19:26:14 | INFO     | vehicle_detection.broadcaster | 🎥 Broadcaster initialized: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection-logic/resources/1.mp4
+2025-06-18 19:26:14 | INFO     | vehicle_detection.broadcaster | 📊 Batch size: 2
+2025-06-18 19:26:14 | INFO     | vehicle_detection.broadcaster | ▶️  Broadcasting started
+2025-06-18 19:26:14 | INFO     | vehicle_detection.app | ✅ Server startup complete!
+2025-06-18 19:26:14 | INFO     | vehicle_detection.app | 🌐 Access the server at: http://0.0.0.0:1234
+2025-06-18 19:26:14 | INFO     | vehicle_detection.app | 🔗 WebSocket endpoint: ws://0.0.0.0:1234/ws
+2025-06-18 19:26:14 | INFO     | vehicle_detection.app | 📊 Health check: http://0.0.0.0:1234/health
+2025-06-18 19:26:14 | INFO     | vehicle_detection.app | 🎮 Control endpoints:
+2025-06-18 19:26:14 | INFO     | vehicle_detection.app |    • POST /control/playback - Video playback control
+2025-06-18 19:26:14 | INFO     | vehicle_detection.app |    • POST /control/detection - Detection settings
+2025-06-18 19:26:14 | INFO     | vehicle_detection.app |    • POST /control/broadcast - Broadcasting control
+2025-06-18 19:26:14 | INFO     | vehicle_detection.app |    • POST /control/device - Device switching
+2025-06-18 19:26:14 | INFO     | vehicle_detection.app |    • POST /config - Configuration updates
+2025-06-18 19:26:14 | INFO     | vehicle_detection.broadcaster | 🚀 Starting broadcast loop
+2025-06-18 19:26:15 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.327s for 2 frames
+2025-06-18 19:26:16 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.295s for 2 frames
+2025-06-18 19:26:16 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.225s for 2 frames
+2025-06-18 19:26:19 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 19:26:19 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 19:26:19 | INFO     | vehicle_detection.broadcaster |    Frames processed: 72
+2025-06-18 19:26:19 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 13
+2025-06-18 19:26:19 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 19:26:19 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 7.3
+2025-06-18 19:26:19 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 7.2
+2025-06-18 19:26:19 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.137s
+2025-06-18 19:26:19 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 25.0
+2025-06-18 19:26:24 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 19:26:24 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 19:26:24 | INFO     | vehicle_detection.broadcaster |    Frames processed: 160
+2025-06-18 19:26:24 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 13
+2025-06-18 19:26:24 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 19:26:24 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 8.1
+2025-06-18 19:26:24 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 8.0
+2025-06-18 19:26:24 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.123s
+2025-06-18 19:26:24 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 23.7
+2025-06-18 19:26:30 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 19:26:30 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 19:26:30 | INFO     | vehicle_detection.broadcaster |    Frames processed: 258
+2025-06-18 19:26:30 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 15
+2025-06-18 19:26:30 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 19:26:30 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 9.5
+2025-06-18 19:26:30 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 9.3
+2025-06-18 19:26:30 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.105s
+2025-06-18 19:26:30 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 25.2
+2025-06-18 19:26:35 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 19:26:35 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 19:26:35 | INFO     | vehicle_detection.broadcaster |    Frames processed: 364
+2025-06-18 19:26:35 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 17
+2025-06-18 19:26:35 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 19:26:35 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 10.4
+2025-06-18 19:26:35 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 10.2
+2025-06-18 19:26:35 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.096s
+2025-06-18 19:26:35 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 27.8
+2025-06-18 19:26:36 | INFO     | vehicle_detection.app | 🛑 Shutting down server...
+2025-06-18 19:26:36 | INFO     | vehicle_detection.broadcaster | ⏹️  Stopping broadcaster...
+2025-06-18 19:26:36 | INFO     | vehicle_detection.broadcaster | 🛑 Broadcast loop stopped
+2025-06-18 19:26:36 | INFO     | vehicle_detection.broadcaster | ✅ Broadcaster stopped
+2025-06-18 19:26:36 | INFO     | vehicle_detection.app | ✅ Server shutdown complete
+2025-06-18 23:26:49 | INFO     | vehicle_detection | 🚀 Vehicle Detection Server
+2025-06-18 23:26:49 | INFO     | vehicle_detection.app | 🌟 M1 Pro Vehicle Detection Server
+2025-06-18 23:26:49 | INFO     | vehicle_detection.app | ==================================================
+2025-06-18 23:26:49 | INFO     | vehicle_detection.app | 📍 URL: http://0.0.0.0:1234
+2025-06-18 23:26:49 | INFO     | vehicle_detection.app | 🎯 Vehicle Classes: car, truck, bus, motorcycle, bicycle
+2025-06-18 23:26:49 | INFO     | vehicle_detection.app | 🔧 Configuration: type
+2025-06-18 23:26:49 | INFO     | vehicle_detection.app | ==================================================
+2025-06-18 23:26:49 | INFO     | vehicle_detection.app | 🚀 Starting M1 Pro Vehicle Detection Server...
+2025-06-18 23:26:49 | INFO     | vehicle_detection.app | 📁 Video path: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection-logic/resources/1.mp4
+2025-06-18 23:26:49 | INFO     | vehicle_detection.app | 🎯 Target FPS: 30
+2025-06-18 23:26:49 | INFO     | vehicle_detection.app | 🔧 Debug mode: False
+2025-06-18 23:26:49 | INFO     | vehicle_detection.app | 🧠 Initializing AI model...
+2025-06-18 23:26:49 | INFO     | vehicle_detection.device_optimizer | 🚀 Starting device optimization...
+2025-06-18 23:26:49 | INFO     | vehicle_detection.device_optimizer | ✓ MPS optimizations applied
+2025-06-18 23:26:49 | INFO     | vehicle_detection.device_optimizer | 📋 Generated 4 test frames
+2025-06-18 23:26:49 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8n.pt
+2025-06-18 23:26:50 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-18 23:26:52 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.690s/frame (2.758s total)
+2025-06-18 23:26:52 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-18 23:26:53 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.026s/frame (0.103s total)
+2025-06-18 23:26:53 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8n.pt results:
+2025-06-18 23:26:53 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.690s (1.5 FPS)
+2025-06-18 23:26:53 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.026s (38.8 FPS)
+2025-06-18 23:26:53 | INFO     | vehicle_detection.device_optimizer | 🏆 New best: yolov8n.pt on CPU
+2025-06-18 23:26:53 | INFO     | vehicle_detection.device_optimizer | 🏆 New best: yolov8n.pt on MPS
+2025-06-18 23:26:53 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8s.pt
+2025-06-18 23:26:53 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-18 23:26:53 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.110s/frame (0.441s total)
+2025-06-18 23:26:53 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-18 23:26:54 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.025s/frame (0.099s total)
+2025-06-18 23:26:54 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8s.pt results:
+2025-06-18 23:26:54 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.110s (9.1 FPS)
+2025-06-18 23:26:54 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.025s (40.4 FPS)
+2025-06-18 23:26:54 | INFO     | vehicle_detection.device_optimizer | 🏆 New best: yolov8s.pt on MPS
+2025-06-18 23:26:54 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8m.pt
+2025-06-18 23:26:54 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-18 23:26:55 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.219s/frame (0.875s total)
+2025-06-18 23:26:55 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-18 23:26:56 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.041s/frame (0.165s total)
+2025-06-18 23:26:56 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8m.pt results:
+2025-06-18 23:26:56 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.219s (4.6 FPS)
+2025-06-18 23:26:56 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.041s (24.2 FPS)
+2025-06-18 23:26:56 | INFO     | vehicle_detection.device_optimizer | 🎯 Final Selection:
+2025-06-18 23:26:56 | INFO     | vehicle_detection.device_optimizer |    Model: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection-logic/model/yolov8s.pt
+2025-06-18 23:26:56 | INFO     | vehicle_detection.device_optimizer |    Device: MPS
+2025-06-18 23:26:56 | INFO     | vehicle_detection.device_optimizer |    Performance: 0.025s/frame (40.4 FPS)
+2025-06-18 23:26:56 | INFO     | vehicle_detection.device_optimizer | 📊 Complete benchmark results:
+2025-06-18 23:26:56 | INFO     | vehicle_detection.device_optimizer |    yolov8n.pt: CPU=1.5fps, MPS=38.8fps
+2025-06-18 23:26:56 | INFO     | vehicle_detection.device_optimizer |    yolov8s.pt: CPU=9.1fps, MPS=40.4fps
+2025-06-18 23:26:56 | INFO     | vehicle_detection.device_optimizer |    yolov8m.pt: CPU=4.6fps, MPS=24.2fps
+2025-06-18 23:26:56 | INFO     | vehicle_detection.app | 🔍 Setting up vehicle detector...
+2025-06-18 23:26:56 | INFO     | vehicle_detection.detector | 🔧 Detector initialized: MPS
+2025-06-18 23:26:56 | INFO     | vehicle_detection.detector | 📋 Vehicle classes: car, truck, bus, motorcycle, bicycle
+2025-06-18 23:26:56 | INFO     | vehicle_detection.app | 📡 Starting video broadcaster...
+2025-06-18 23:26:56 | INFO     | vehicle_detection.broadcaster | 📹 Video properties: 1280x720, 25.0fps, 7737 frames
+2025-06-18 23:26:56 | INFO     | vehicle_detection.broadcaster | 🎥 Broadcaster initialized: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection-logic/resources/1.mp4
+2025-06-18 23:26:56 | INFO     | vehicle_detection.broadcaster | 📊 Batch size: 2
+2025-06-18 23:26:56 | INFO     | vehicle_detection.broadcaster | ▶️  Broadcasting started
+2025-06-18 23:26:56 | INFO     | vehicle_detection.app | ✅ Server startup complete!
+2025-06-18 23:26:56 | INFO     | vehicle_detection.app | 🌐 Access the server at: http://0.0.0.0:1234
+2025-06-18 23:26:56 | INFO     | vehicle_detection.app | 🔗 WebSocket endpoint: ws://0.0.0.0:1234/ws
+2025-06-18 23:26:56 | INFO     | vehicle_detection.app | 📊 Health check: http://0.0.0.0:1234/health
+2025-06-18 23:26:56 | INFO     | vehicle_detection.app | 🎮 Control endpoints:
+2025-06-18 23:26:56 | INFO     | vehicle_detection.app |    • POST /control/playback - Video playback control
+2025-06-18 23:26:56 | INFO     | vehicle_detection.app |    • POST /control/detection - Detection settings
+2025-06-18 23:26:56 | INFO     | vehicle_detection.app |    • POST /control/broadcast - Broadcasting control
+2025-06-18 23:26:56 | INFO     | vehicle_detection.app |    • POST /control/device - Device switching
+2025-06-18 23:26:56 | INFO     | vehicle_detection.app |    • POST /config - Configuration updates
+2025-06-18 23:26:56 | INFO     | vehicle_detection.broadcaster | 🚀 Starting broadcast loop
+2025-06-18 23:26:56 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.299s for 2 frames
+2025-06-18 23:26:56 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.227s for 2 frames
+2025-06-18 23:26:56 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.214s for 2 frames
+2025-06-18 23:26:57 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.211s for 2 frames
+2025-06-18 23:26:57 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.215s for 2 frames
+2025-06-18 23:26:57 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.203s for 2 frames
+2025-06-18 23:27:01 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:27:01 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:27:01 | INFO     | vehicle_detection.broadcaster |    Frames processed: 60
+2025-06-18 23:27:01 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 17
+2025-06-18 23:27:01 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:27:01 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.1
+2025-06-18 23:27:01 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.0
+2025-06-18 23:27:01 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.165s
+2025-06-18 23:27:01 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 41.3
+2025-06-18 23:27:01 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.209s for 2 frames
+2025-06-18 23:27:02 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.200s for 2 frames
+2025-06-18 23:27:02 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.205s for 2 frames
+2025-06-18 23:27:03 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.201s for 2 frames
+2025-06-18 23:27:03 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.211s for 2 frames
+2025-06-18 23:27:05 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.208s for 2 frames
+2025-06-18 23:27:05 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.215s for 2 frames
+2025-06-18 23:27:06 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:27:06 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:27:06 | INFO     | vehicle_detection.broadcaster |    Frames processed: 120
+2025-06-18 23:27:06 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 18
+2025-06-18 23:27:06 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:27:06 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.1
+2025-06-18 23:27:06 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.0
+2025-06-18 23:27:06 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.164s
+2025-06-18 23:27:06 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 38.1
+2025-06-18 23:27:08 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.253s for 2 frames
+2025-06-18 23:27:11 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.227s for 2 frames
+2025-06-18 23:27:11 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:27:11 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:27:11 | INFO     | vehicle_detection.broadcaster |    Frames processed: 184
+2025-06-18 23:27:11 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 14
+2025-06-18 23:27:11 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:27:11 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.2
+2025-06-18 23:27:11 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.1
+2025-06-18 23:27:11 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.162s
+2025-06-18 23:27:11 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 37.4
+2025-06-18 23:27:12 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.223s for 2 frames
+2025-06-18 23:27:14 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.272s for 2 frames
+2025-06-18 23:27:14 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.206s for 2 frames
+2025-06-18 23:27:14 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.214s for 2 frames
+2025-06-18 23:27:14 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.224s for 2 frames
+2025-06-18 23:27:15 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.229s for 2 frames
+2025-06-18 23:27:15 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.218s for 2 frames
+2025-06-18 23:27:16 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.251s for 2 frames
+2025-06-18 23:27:16 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:27:16 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:27:16 | INFO     | vehicle_detection.broadcaster |    Frames processed: 240
+2025-06-18 23:27:16 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 18
+2025-06-18 23:27:16 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:27:16 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.1
+2025-06-18 23:27:16 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.0
+2025-06-18 23:27:16 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.164s
+2025-06-18 23:27:16 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 34.4
+2025-06-18 23:27:17 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.265s for 2 frames
+2025-06-18 23:27:17 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.270s for 2 frames
+2025-06-18 23:27:17 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.226s for 2 frames
+2025-06-18 23:27:18 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.263s for 2 frames
+2025-06-18 23:27:19 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.254s for 2 frames
+2025-06-18 23:27:19 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.273s for 2 frames
+2025-06-18 23:27:20 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.296s for 2 frames
+2025-06-18 23:27:20 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.245s for 2 frames
+2025-06-18 23:27:20 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.279s for 2 frames
+2025-06-18 23:27:21 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:27:21 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:27:21 | INFO     | vehicle_detection.broadcaster |    Frames processed: 288
+2025-06-18 23:27:21 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 22
+2025-06-18 23:27:21 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:27:21 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.7
+2025-06-18 23:27:21 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.6
+2025-06-18 23:27:21 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.176s
+2025-06-18 23:27:21 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 38.1
+2025-06-18 23:27:21 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.212s for 2 frames
+2025-06-18 23:27:22 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.241s for 2 frames
+2025-06-18 23:27:23 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.262s for 2 frames
+2025-06-18 23:27:24 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.214s for 2 frames
+2025-06-18 23:27:24 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.230s for 2 frames
+2025-06-18 23:27:24 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.214s for 2 frames
+2025-06-18 23:27:24 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.227s for 2 frames
+2025-06-18 23:27:25 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.263s for 2 frames
+2025-06-18 23:27:25 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.624s for 2 frames
+2025-06-18 23:27:26 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.374s for 2 frames
+2025-06-18 23:27:26 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.460s for 2 frames
+2025-06-18 23:27:26 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.333s for 2 frames
+2025-06-18 23:27:26 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:27:26 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:27:26 | INFO     | vehicle_detection.broadcaster |    Frames processed: 330
+2025-06-18 23:27:26 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 23
+2025-06-18 23:27:26 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:27:26 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.2
+2025-06-18 23:27:26 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.1
+2025-06-18 23:27:26 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.194s
+2025-06-18 23:27:26 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 40.1
+2025-06-18 23:27:27 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.282s for 2 frames
+2025-06-18 23:27:27 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.263s for 2 frames
+2025-06-18 23:27:27 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.268s for 2 frames
+2025-06-18 23:27:28 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.300s for 2 frames
+2025-06-18 23:27:28 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.368s for 2 frames
+2025-06-18 23:27:28 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.384s for 2 frames
+2025-06-18 23:27:29 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.285s for 2 frames
+2025-06-18 23:27:29 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.659s for 2 frames
+2025-06-18 23:27:30 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 1.106s for 2 frames
+2025-06-18 23:27:31 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.411s for 2 frames
+2025-06-18 23:27:31 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.318s for 2 frames
+2025-06-18 23:27:32 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.274s for 2 frames
+2025-06-18 23:27:32 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:27:32 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:27:32 | INFO     | vehicle_detection.broadcaster |    Frames processed: 354
+2025-06-18 23:27:32 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 25
+2025-06-18 23:27:32 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:27:32 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 4.5
+2025-06-18 23:27:32 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 4.4
+2025-06-18 23:27:32 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.223s
+2025-06-18 23:27:32 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 41.6
+2025-06-18 23:27:35 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 3.743s for 2 frames
+2025-06-18 23:27:37 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 1.194s for 2 frames
+2025-06-18 23:27:38 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 1.214s for 2 frames
+2025-06-18 23:27:38 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:27:38 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:27:38 | INFO     | vehicle_detection.broadcaster |    Frames processed: 360
+2025-06-18 23:27:38 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 27
+2025-06-18 23:27:38 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:27:38 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 3.6
+2025-06-18 23:27:38 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 3.5
+2025-06-18 23:27:38 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.280s
+2025-06-18 23:27:38 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 42.0
+2025-06-18 23:27:38 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.449s for 2 frames
+2025-06-18 23:27:39 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.717s for 2 frames
+2025-06-18 23:27:39 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.453s for 2 frames
+2025-06-18 23:27:40 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.275s for 2 frames
+2025-06-18 23:27:40 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.273s for 2 frames
+2025-06-18 23:27:40 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.320s for 2 frames
+2025-06-18 23:27:41 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.412s for 2 frames
+2025-06-18 23:27:41 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.385s for 2 frames
+2025-06-18 23:27:41 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.290s for 2 frames
+2025-06-18 23:27:42 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.265s for 2 frames
+2025-06-18 23:27:42 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.218s for 2 frames
+2025-06-18 23:27:43 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:27:43 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:27:43 | INFO     | vehicle_detection.broadcaster |    Frames processed: 392
+2025-06-18 23:27:43 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 22
+2025-06-18 23:27:43 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:27:43 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 3.3
+2025-06-18 23:27:43 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 3.2
+2025-06-18 23:27:43 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.303s
+2025-06-18 23:27:43 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 44.1
+2025-06-18 23:27:43 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.248s for 2 frames
+2025-06-18 23:27:44 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.213s for 2 frames
+2025-06-18 23:27:45 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.230s for 2 frames
+2025-06-18 23:27:45 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.218s for 2 frames
+2025-06-18 23:27:45 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.221s for 2 frames
+2025-06-18 23:27:46 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.201s for 2 frames
+2025-06-18 23:27:46 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.201s for 2 frames
+2025-06-18 23:27:46 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.207s for 2 frames
+2025-06-18 23:27:46 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.227s for 2 frames
+2025-06-18 23:27:47 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.301s for 2 frames
+2025-06-18 23:27:48 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.467s for 2 frames
+2025-06-18 23:27:48 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.353s for 2 frames
+2025-06-18 23:27:48 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.421s for 2 frames
+2025-06-18 23:27:48 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:27:48 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:27:48 | INFO     | vehicle_detection.broadcaster |    Frames processed: 438
+2025-06-18 23:27:48 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 17
+2025-06-18 23:27:48 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:27:48 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 3.2
+2025-06-18 23:27:48 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 3.1
+2025-06-18 23:27:48 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.315s
+2025-06-18 23:27:48 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 46.1
+2025-06-18 23:27:49 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.363s for 2 frames
+2025-06-18 23:27:49 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.274s for 2 frames
+2025-06-18 23:27:49 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.256s for 2 frames
+2025-06-18 23:27:49 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.208s for 2 frames
+2025-06-18 23:27:51 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.208s for 2 frames
+2025-06-18 23:27:52 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.222s for 2 frames
+2025-06-18 23:27:52 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.209s for 2 frames
+2025-06-18 23:27:53 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.235s for 2 frames
+2025-06-18 23:27:53 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:27:53 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:27:53 | INFO     | vehicle_detection.broadcaster |    Frames processed: 490
+2025-06-18 23:27:53 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 31
+2025-06-18 23:27:53 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:27:53 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 3.2
+2025-06-18 23:27:53 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 3.1
+2025-06-18 23:27:53 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.312s
+2025-06-18 23:27:53 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 45.2
+2025-06-18 23:27:56 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.224s for 2 frames
+2025-06-18 23:27:58 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.245s for 2 frames
+2025-06-18 23:27:59 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:27:59 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:27:59 | INFO     | vehicle_detection.broadcaster |    Frames processed: 552
+2025-06-18 23:27:59 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 25
+2025-06-18 23:27:59 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:27:59 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 3.8
+2025-06-18 23:27:59 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 3.7
+2025-06-18 23:27:59 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.266s
+2025-06-18 23:27:59 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 45.6
+2025-06-18 23:28:00 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.226s for 2 frames
+2025-06-18 23:28:02 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.213s for 2 frames
+2025-06-18 23:28:02 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.223s for 2 frames
+2025-06-18 23:28:04 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:28:04 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:28:04 | INFO     | vehicle_detection.broadcaster |    Frames processed: 612
+2025-06-18 23:28:04 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 28
+2025-06-18 23:28:04 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:28:04 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.5
+2025-06-18 23:28:04 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.4
+2025-06-18 23:28:04 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.183s
+2025-06-18 23:28:04 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 46.5
+2025-06-18 23:28:08 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.219s for 2 frames
+2025-06-18 23:28:08 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.205s for 2 frames
+2025-06-18 23:28:09 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:28:09 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:28:09 | INFO     | vehicle_detection.broadcaster |    Frames processed: 674
+2025-06-18 23:28:09 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 19
+2025-06-18 23:28:09 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:28:09 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.2
+2025-06-18 23:28:09 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.1
+2025-06-18 23:28:09 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.162s
+2025-06-18 23:28:09 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 47.2
+2025-06-18 23:28:14 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:28:14 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:28:14 | INFO     | vehicle_detection.broadcaster |    Frames processed: 738
+2025-06-18 23:28:14 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 23
+2025-06-18 23:28:14 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:28:14 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.3
+2025-06-18 23:28:14 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.2
+2025-06-18 23:28:14 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.159s
+2025-06-18 23:28:14 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 46.4
+2025-06-18 23:28:14 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.230s for 2 frames
+2025-06-18 23:28:16 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.216s for 2 frames
+2025-06-18 23:28:16 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.248s for 2 frames
+2025-06-18 23:28:18 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.216s for 2 frames
+2025-06-18 23:28:18 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.228s for 2 frames
+2025-06-18 23:28:18 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.217s for 2 frames
+2025-06-18 23:28:19 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.239s for 2 frames
+2025-06-18 23:28:19 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:28:19 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:28:19 | INFO     | vehicle_detection.broadcaster |    Frames processed: 794
+2025-06-18 23:28:19 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 30
+2025-06-18 23:28:19 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:28:19 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.1
+2025-06-18 23:28:19 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.0
+2025-06-18 23:28:19 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.164s
+2025-06-18 23:28:19 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 48.1
+2025-06-18 23:28:19 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.226s for 2 frames
+2025-06-18 23:28:19 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.259s for 2 frames
+2025-06-18 23:28:20 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.217s for 2 frames
+2025-06-18 23:28:20 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.234s for 2 frames
+2025-06-18 23:28:21 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.219s for 2 frames
+2025-06-18 23:28:21 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.233s for 2 frames
+2025-06-18 23:28:21 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.205s for 2 frames
+2025-06-18 23:28:21 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.207s for 2 frames
+2025-06-18 23:28:22 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.203s for 2 frames
+2025-06-18 23:28:24 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:28:24 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:28:24 | INFO     | vehicle_detection.broadcaster |    Frames processed: 848
+2025-06-18 23:28:24 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 26
+2025-06-18 23:28:24 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:28:24 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.9
+2025-06-18 23:28:24 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.8
+2025-06-18 23:28:24 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.170s
+2025-06-18 23:28:24 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 50.5
+2025-06-18 23:28:25 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.230s for 2 frames
+2025-06-18 23:28:28 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.202s for 2 frames
+2025-06-18 23:28:29 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:28:29 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:28:29 | INFO     | vehicle_detection.broadcaster |    Frames processed: 908
+2025-06-18 23:28:29 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 20
+2025-06-18 23:28:29 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:28:29 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.8
+2025-06-18 23:28:29 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.8
+2025-06-18 23:28:29 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.171s
+2025-06-18 23:28:29 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 50.8
+2025-06-18 23:28:34 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:28:34 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:28:34 | INFO     | vehicle_detection.broadcaster |    Frames processed: 978
+2025-06-18 23:28:34 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 17
+2025-06-18 23:28:34 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:28:34 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.1
+2025-06-18 23:28:34 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.0
+2025-06-18 23:28:34 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.164s
+2025-06-18 23:28:34 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 46.8
+2025-06-18 23:28:39 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:28:39 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:28:39 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1046
+2025-06-18 23:28:39 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 23
+2025-06-18 23:28:39 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:28:39 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.7
+2025-06-18 23:28:39 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.6
+2025-06-18 23:28:39 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.150s
+2025-06-18 23:28:39 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 42.3
+2025-06-18 23:28:44 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:28:44 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:28:44 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1112
+2025-06-18 23:28:44 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 19
+2025-06-18 23:28:44 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:28:44 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.9
+2025-06-18 23:28:44 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.8
+2025-06-18 23:28:44 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.146s
+2025-06-18 23:28:44 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 42.0
+2025-06-18 23:28:46 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.213s for 2 frames
+2025-06-18 23:28:49 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:28:49 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:28:49 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1178
+2025-06-18 23:28:49 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 21
+2025-06-18 23:28:49 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:28:49 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.8
+2025-06-18 23:28:49 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.7
+2025-06-18 23:28:49 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.148s
+2025-06-18 23:28:49 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 44.3
+2025-06-18 23:28:54 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:28:54 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:28:54 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1244
+2025-06-18 23:28:54 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 28
+2025-06-18 23:28:54 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:28:54 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.7
+2025-06-18 23:28:54 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.6
+2025-06-18 23:28:54 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.149s
+2025-06-18 23:28:54 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 46.7
+2025-06-18 23:28:55 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.222s for 2 frames
+2025-06-18 23:28:59 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.231s for 2 frames
+2025-06-18 23:28:59 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.233s for 2 frames
+2025-06-18 23:28:59 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:28:59 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:28:59 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1306
+2025-06-18 23:28:59 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 27
+2025-06-18 23:28:59 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:28:59 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.6
+2025-06-18 23:28:59 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.5
+2025-06-18 23:28:59 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.152s
+2025-06-18 23:28:59 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 48.4
+2025-06-18 23:29:04 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:29:04 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:29:04 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1370
+2025-06-18 23:29:04 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 22
+2025-06-18 23:29:04 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:29:04 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.5
+2025-06-18 23:29:04 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.4
+2025-06-18 23:29:04 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.154s
+2025-06-18 23:29:04 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 50.7
+2025-06-18 23:29:10 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:29:10 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:29:10 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1434
+2025-06-18 23:29:10 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 25
+2025-06-18 23:29:10 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:29:10 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.4
+2025-06-18 23:29:10 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.3
+2025-06-18 23:29:10 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.156s
+2025-06-18 23:29:10 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 51.7
+2025-06-18 23:29:15 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:29:15 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:29:15 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1496
+2025-06-18 23:29:15 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 31
+2025-06-18 23:29:15 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:29:15 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.4
+2025-06-18 23:29:15 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.3
+2025-06-18 23:29:15 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.156s
+2025-06-18 23:29:15 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 53.1
+2025-06-18 23:29:20 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:29:20 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:29:20 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1560
+2025-06-18 23:29:20 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 20
+2025-06-18 23:29:20 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:29:20 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.4
+2025-06-18 23:29:20 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.3
+2025-06-18 23:29:20 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.156s
+2025-06-18 23:29:20 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 51.0
+2025-06-18 23:29:24 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.210s for 2 frames
+2025-06-18 23:29:25 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:29:25 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:29:25 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1624
+2025-06-18 23:29:25 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 22
+2025-06-18 23:29:25 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:29:25 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.4
+2025-06-18 23:29:25 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.3
+2025-06-18 23:29:25 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.155s
+2025-06-18 23:29:25 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 49.9
+2025-06-18 23:29:28 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.241s for 2 frames
+2025-06-18 23:29:30 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:29:30 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:29:30 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1686
+2025-06-18 23:29:30 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 25
+2025-06-18 23:29:30 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:29:30 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.4
+2025-06-18 23:29:30 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.3
+2025-06-18 23:29:30 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.156s
+2025-06-18 23:29:30 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 48.2
+2025-06-18 23:29:31 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.204s for 2 frames
+2025-06-18 23:29:35 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:29:35 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:29:35 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1748
+2025-06-18 23:29:35 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 28
+2025-06-18 23:29:35 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:29:35 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.4
+2025-06-18 23:29:35 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.3
+2025-06-18 23:29:35 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.157s
+2025-06-18 23:29:35 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 47.6
+2025-06-18 23:29:40 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.292s for 2 frames
+2025-06-18 23:29:40 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:29:40 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:29:40 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1808
+2025-06-18 23:29:40 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 25
+2025-06-18 23:29:40 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:29:40 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.2
+2025-06-18 23:29:40 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.1
+2025-06-18 23:29:40 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.160s
+2025-06-18 23:29:40 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 50.4
+2025-06-18 23:29:45 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:29:45 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:29:45 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1872
+2025-06-18 23:29:45 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 25
+2025-06-18 23:29:45 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:29:45 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.3
+2025-06-18 23:29:45 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.2
+2025-06-18 23:29:45 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.159s
+2025-06-18 23:29:45 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 52.5
+2025-06-18 23:29:50 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:29:50 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:29:50 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1934
+2025-06-18 23:29:50 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 21
+2025-06-18 23:29:50 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:29:50 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.3
+2025-06-18 23:29:50 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.2
+2025-06-18 23:29:50 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.159s
+2025-06-18 23:29:50 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 52.8
+2025-06-18 23:29:51 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.294s for 2 frames
+2025-06-18 23:29:55 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:29:55 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:29:55 | INFO     | vehicle_detection.broadcaster |    Frames processed: 1998
+2025-06-18 23:29:55 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 22
+2025-06-18 23:29:55 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:29:55 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.3
+2025-06-18 23:29:55 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.2
+2025-06-18 23:29:55 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.158s
+2025-06-18 23:29:55 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 51.2
+2025-06-18 23:29:59 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.519s for 2 frames
+2025-06-18 23:30:00 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.252s for 2 frames
+2025-06-18 23:30:00 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:30:00 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:30:00 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2054
+2025-06-18 23:30:00 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 28
+2025-06-18 23:30:00 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:30:00 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.2
+2025-06-18 23:30:00 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.1
+2025-06-18 23:30:00 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.161s
+2025-06-18 23:30:00 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 51.2
+2025-06-18 23:30:02 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.211s for 2 frames
+2025-06-18 23:30:05 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:30:05 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:30:05 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2112
+2025-06-18 23:30:05 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 31
+2025-06-18 23:30:05 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:30:05 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.1
+2025-06-18 23:30:05 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.0
+2025-06-18 23:30:05 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.164s
+2025-06-18 23:30:05 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 53.1
+2025-06-18 23:30:09 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.215s for 2 frames
+2025-06-18 23:30:10 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.203s for 2 frames
+2025-06-18 23:30:10 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.256s for 2 frames
+2025-06-18 23:30:10 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:30:10 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:30:10 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2170
+2025-06-18 23:30:10 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 32
+2025-06-18 23:30:10 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:30:10 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.9
+2025-06-18 23:30:10 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.8
+2025-06-18 23:30:10 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.169s
+2025-06-18 23:30:10 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 57.5
+2025-06-18 23:30:14 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.201s for 2 frames
+2025-06-18 23:30:15 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:30:15 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:30:15 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2230
+2025-06-18 23:30:15 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 34
+2025-06-18 23:30:15 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:30:15 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.8
+2025-06-18 23:30:15 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.7
+2025-06-18 23:30:15 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.173s
+2025-06-18 23:30:15 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 61.1
+2025-06-18 23:30:16 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.242s for 2 frames
+2025-06-18 23:30:17 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.227s for 2 frames
+2025-06-18 23:30:18 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.254s for 2 frames
+2025-06-18 23:30:19 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.211s for 2 frames
+2025-06-18 23:30:19 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.257s for 2 frames
+2025-06-18 23:30:19 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.281s for 2 frames
+2025-06-18 23:30:20 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.212s for 2 frames
+2025-06-18 23:30:20 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:30:20 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:30:20 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2282
+2025-06-18 23:30:20 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 34
+2025-06-18 23:30:20 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:30:20 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.7
+2025-06-18 23:30:20 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.7
+2025-06-18 23:30:20 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.174s
+2025-06-18 23:30:20 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 62.9
+2025-06-18 23:30:21 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.252s for 2 frames
+2025-06-18 23:30:21 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.230s for 2 frames
+2025-06-18 23:30:22 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.242s for 2 frames
+2025-06-18 23:30:22 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.266s for 2 frames
+2025-06-18 23:30:22 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.252s for 2 frames
+2025-06-18 23:30:23 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.302s for 2 frames
+2025-06-18 23:30:23 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.211s for 2 frames
+2025-06-18 23:30:23 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.282s for 2 frames
+2025-06-18 23:30:23 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.221s for 2 frames
+2025-06-18 23:30:24 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.214s for 2 frames
+2025-06-18 23:30:24 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.215s for 2 frames
+2025-06-18 23:30:24 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.212s for 2 frames
+2025-06-18 23:30:25 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.201s for 2 frames
+2025-06-18 23:30:25 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.201s for 2 frames
+2025-06-18 23:30:25 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.210s for 2 frames
+2025-06-18 23:30:25 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:30:25 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:30:25 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2328
+2025-06-18 23:30:25 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 40
+2025-06-18 23:30:25 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:30:25 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.4
+2025-06-18 23:30:25 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.3
+2025-06-18 23:30:25 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.185s
+2025-06-18 23:30:25 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 66.5
+2025-06-18 23:30:26 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.208s for 2 frames
+2025-06-18 23:30:26 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.211s for 2 frames
+2025-06-18 23:30:27 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.253s for 2 frames
+2025-06-18 23:30:27 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.269s for 2 frames
+2025-06-18 23:30:28 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.302s for 2 frames
+2025-06-18 23:30:28 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.218s for 2 frames
+2025-06-18 23:30:29 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.223s for 2 frames
+2025-06-18 23:30:30 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.229s for 2 frames
+2025-06-18 23:30:30 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:30:30 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:30:30 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2378
+2025-06-18 23:30:30 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 33
+2025-06-18 23:30:30 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:30:30 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.2
+2025-06-18 23:30:30 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.2
+2025-06-18 23:30:30 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.192s
+2025-06-18 23:30:30 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 69.2
+2025-06-18 23:30:36 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:30:36 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:30:36 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2440
+2025-06-18 23:30:36 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 26
+2025-06-18 23:30:36 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:30:36 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.3
+2025-06-18 23:30:36 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.2
+2025-06-18 23:30:36 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.189s
+2025-06-18 23:30:36 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 69.7
+2025-06-18 23:30:40 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.202s for 2 frames
+2025-06-18 23:30:41 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:30:41 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:30:41 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2498
+2025-06-18 23:30:41 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 27
+2025-06-18 23:30:41 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:30:41 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.5
+2025-06-18 23:30:41 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.5
+2025-06-18 23:30:41 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.181s
+2025-06-18 23:30:41 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 67.6
+2025-06-18 23:30:41 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.205s for 2 frames
+2025-06-18 23:30:41 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.224s for 2 frames
+2025-06-18 23:30:41 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.254s for 2 frames
+2025-06-18 23:30:42 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.291s for 2 frames
+2025-06-18 23:30:42 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.267s for 2 frames
+2025-06-18 23:30:42 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.470s for 2 frames
+2025-06-18 23:30:43 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.262s for 2 frames
+2025-06-18 23:30:43 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.256s for 2 frames
+2025-06-18 23:30:43 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.227s for 2 frames
+2025-06-18 23:30:46 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:30:46 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:30:46 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2546
+2025-06-18 23:30:46 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 33
+2025-06-18 23:30:46 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:30:46 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.6
+2025-06-18 23:30:46 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.5
+2025-06-18 23:30:46 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.177s
+2025-06-18 23:30:46 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 63.6
+2025-06-18 23:30:47 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.204s for 2 frames
+2025-06-18 23:30:49 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.239s for 2 frames
+2025-06-18 23:30:50 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.222s for 2 frames
+2025-06-18 23:30:51 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:30:51 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:30:51 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2606
+2025-06-18 23:30:51 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 38
+2025-06-18 23:30:51 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:30:51 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.7
+2025-06-18 23:30:51 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.6
+2025-06-18 23:30:51 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.175s
+2025-06-18 23:30:51 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 62.6
+2025-06-18 23:30:51 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.270s for 2 frames
+2025-06-18 23:30:52 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.287s for 2 frames
+2025-06-18 23:30:52 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.230s for 2 frames
+2025-06-18 23:30:52 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.207s for 2 frames
+2025-06-18 23:30:53 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.234s for 2 frames
+2025-06-18 23:30:53 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.232s for 2 frames
+2025-06-18 23:30:56 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:30:56 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:30:56 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2658
+2025-06-18 23:30:56 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 31
+2025-06-18 23:30:56 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:30:56 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.5
+2025-06-18 23:30:56 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.4
+2025-06-18 23:30:56 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.180s
+2025-06-18 23:30:56 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 64.9
+2025-06-18 23:30:57 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.214s for 2 frames
+2025-06-18 23:30:58 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.205s for 2 frames
+2025-06-18 23:30:59 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.208s for 2 frames
+2025-06-18 23:30:59 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.202s for 2 frames
+2025-06-18 23:31:00 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.206s for 2 frames
+2025-06-18 23:31:01 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:31:01 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:31:01 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2712
+2025-06-18 23:31:01 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 30
+2025-06-18 23:31:01 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:31:01 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.6
+2025-06-18 23:31:01 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.6
+2025-06-18 23:31:01 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.177s
+2025-06-18 23:31:01 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 67.2
+2025-06-18 23:31:01 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.211s for 2 frames
+2025-06-18 23:31:02 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.360s for 2 frames
+2025-06-18 23:31:02 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.334s for 2 frames
+2025-06-18 23:31:03 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.204s for 2 frames
+2025-06-18 23:31:04 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.209s for 2 frames
+2025-06-18 23:31:06 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:31:06 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:31:06 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2766
+2025-06-18 23:31:06 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 31
+2025-06-18 23:31:06 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:31:06 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.5
+2025-06-18 23:31:06 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.4
+2025-06-18 23:31:06 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.182s
+2025-06-18 23:31:06 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 66.0
+2025-06-18 23:31:11 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:31:11 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:31:11 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2826
+2025-06-18 23:31:11 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 29
+2025-06-18 23:31:11 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:31:11 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.7
+2025-06-18 23:31:11 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.6
+2025-06-18 23:31:11 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.175s
+2025-06-18 23:31:11 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 63.6
+2025-06-18 23:31:16 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:31:16 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:31:16 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2888
+2025-06-18 23:31:16 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 28
+2025-06-18 23:31:16 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:31:16 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.9
+2025-06-18 23:31:16 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.8
+2025-06-18 23:31:16 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.170s
+2025-06-18 23:31:16 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 61.1
+2025-06-18 23:31:17 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.208s for 2 frames
+2025-06-18 23:31:21 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:31:21 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:31:21 | INFO     | vehicle_detection.broadcaster |    Frames processed: 2948
+2025-06-18 23:31:21 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 29
+2025-06-18 23:31:21 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:31:21 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.2
+2025-06-18 23:31:21 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.1
+2025-06-18 23:31:21 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.162s
+2025-06-18 23:31:21 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 60.6
+2025-06-18 23:31:26 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:31:26 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:31:26 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3012
+2025-06-18 23:31:26 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 30
+2025-06-18 23:31:26 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:31:26 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.3
+2025-06-18 23:31:26 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.2
+2025-06-18 23:31:26 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.158s
+2025-06-18 23:31:26 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 59.1
+2025-06-18 23:31:29 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.362s for 2 frames
+2025-06-18 23:31:29 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.206s for 2 frames
+2025-06-18 23:31:31 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:31:31 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:31:31 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3070
+2025-06-18 23:31:31 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 31
+2025-06-18 23:31:31 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:31:31 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.1
+2025-06-18 23:31:31 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.1
+2025-06-18 23:31:31 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.163s
+2025-06-18 23:31:31 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 58.5
+2025-06-18 23:31:36 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:31:36 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:31:36 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3132
+2025-06-18 23:31:36 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 36
+2025-06-18 23:31:36 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:31:36 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.2
+2025-06-18 23:31:36 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.1
+2025-06-18 23:31:36 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.161s
+2025-06-18 23:31:36 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 58.9
+2025-06-18 23:31:37 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.219s for 2 frames
+2025-06-18 23:31:39 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.217s for 2 frames
+2025-06-18 23:31:40 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.235s for 2 frames
+2025-06-18 23:31:40 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.242s for 2 frames
+2025-06-18 23:31:41 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.203s for 2 frames
+2025-06-18 23:31:41 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.204s for 2 frames
+2025-06-18 23:31:41 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:31:41 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:31:41 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3186
+2025-06-18 23:31:41 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 38
+2025-06-18 23:31:41 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:31:41 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.9
+2025-06-18 23:31:41 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.9
+2025-06-18 23:31:41 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.168s
+2025-06-18 23:31:41 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 63.5
+2025-06-18 23:31:42 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.234s for 2 frames
+2025-06-18 23:31:46 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:31:46 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:31:46 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3246
+2025-06-18 23:31:46 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 31
+2025-06-18 23:31:46 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:31:46 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.9
+2025-06-18 23:31:46 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.9
+2025-06-18 23:31:46 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.169s
+2025-06-18 23:31:46 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 65.8
+2025-06-18 23:31:47 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.278s for 2 frames
+2025-06-18 23:31:47 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.203s for 2 frames
+2025-06-18 23:31:51 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.255s for 2 frames
+2025-06-18 23:31:52 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:31:52 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:31:52 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3306
+2025-06-18 23:31:52 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 28
+2025-06-18 23:31:52 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:31:52 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 5.9
+2025-06-18 23:31:52 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 5.8
+2025-06-18 23:31:52 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.170s
+2025-06-18 23:31:52 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 68.5
+2025-06-18 23:31:57 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:31:57 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:31:57 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3370
+2025-06-18 23:31:57 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 28
+2025-06-18 23:31:57 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:31:57 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.1
+2025-06-18 23:31:57 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.0
+2025-06-18 23:31:57 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.165s
+2025-06-18 23:31:57 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 65.2
+2025-06-18 23:32:02 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:32:02 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:32:02 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3432
+2025-06-18 23:32:02 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 23
+2025-06-18 23:32:02 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:32:02 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.3
+2025-06-18 23:32:02 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.2
+2025-06-18 23:32:02 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.159s
+2025-06-18 23:32:02 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 62.0
+2025-06-18 23:32:07 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:32:07 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:32:07 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3504
+2025-06-18 23:32:07 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 20
+2025-06-18 23:32:07 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:32:07 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.7
+2025-06-18 23:32:07 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.6
+2025-06-18 23:32:07 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.149s
+2025-06-18 23:32:07 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 52.4
+2025-06-18 23:32:11 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.225s for 2 frames
+2025-06-18 23:32:12 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:32:12 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:32:12 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3572
+2025-06-18 23:32:12 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 19
+2025-06-18 23:32:12 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:32:12 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.8
+2025-06-18 23:32:12 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.7
+2025-06-18 23:32:12 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.146s
+2025-06-18 23:32:12 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 43.8
+2025-06-18 23:32:17 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:32:17 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:32:17 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3646
+2025-06-18 23:32:17 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 19
+2025-06-18 23:32:17 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:32:17 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 7.3
+2025-06-18 23:32:17 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 7.1
+2025-06-18 23:32:17 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.138s
+2025-06-18 23:32:17 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 34.6
+2025-06-18 23:32:22 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:32:22 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:32:22 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3712
+2025-06-18 23:32:22 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 21
+2025-06-18 23:32:22 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:32:22 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 7.0
+2025-06-18 23:32:22 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.9
+2025-06-18 23:32:22 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.142s
+2025-06-18 23:32:22 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 38.2
+2025-06-18 23:32:27 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:32:27 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:32:27 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3778
+2025-06-18 23:32:27 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 27
+2025-06-18 23:32:27 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:32:27 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.9
+2025-06-18 23:32:27 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.8
+2025-06-18 23:32:27 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.145s
+2025-06-18 23:32:27 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 42.0
+2025-06-18 23:32:32 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:32:32 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:32:32 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3846
+2025-06-18 23:32:32 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 22
+2025-06-18 23:32:32 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:32:32 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.7
+2025-06-18 23:32:32 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.6
+2025-06-18 23:32:32 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.149s
+2025-06-18 23:32:32 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 46.4
+2025-06-18 23:32:37 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:32:37 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:32:37 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3914
+2025-06-18 23:32:37 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 24
+2025-06-18 23:32:37 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:32:37 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.8
+2025-06-18 23:32:37 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.7
+2025-06-18 23:32:37 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.147s
+2025-06-18 23:32:37 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 45.5
+2025-06-18 23:32:42 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:32:42 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:32:42 | INFO     | vehicle_detection.broadcaster |    Frames processed: 3982
+2025-06-18 23:32:42 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 26
+2025-06-18 23:32:42 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:32:42 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.9
+2025-06-18 23:32:42 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.8
+2025-06-18 23:32:42 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.146s
+2025-06-18 23:32:42 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 45.3
+2025-06-18 23:32:47 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:32:47 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:32:47 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4052
+2025-06-18 23:32:47 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 22
+2025-06-18 23:32:47 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:32:47 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.9
+2025-06-18 23:32:47 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.8
+2025-06-18 23:32:47 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.145s
+2025-06-18 23:32:47 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 46.8
+2025-06-18 23:32:53 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:32:53 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:32:53 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4122
+2025-06-18 23:32:53 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 25
+2025-06-18 23:32:53 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:32:53 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 7.0
+2025-06-18 23:32:53 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.9
+2025-06-18 23:32:53 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.143s
+2025-06-18 23:32:53 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 46.8
+2025-06-18 23:32:58 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:32:58 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:32:58 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4190
+2025-06-18 23:32:58 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 26
+2025-06-18 23:32:58 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:32:58 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 7.0
+2025-06-18 23:32:58 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.9
+2025-06-18 23:32:58 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.143s
+2025-06-18 23:32:58 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 47.4
+2025-06-18 23:33:03 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:33:03 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:33:03 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4254
+2025-06-18 23:33:03 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 29
+2025-06-18 23:33:03 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:33:03 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.8
+2025-06-18 23:33:03 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.7
+2025-06-18 23:33:03 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.148s
+2025-06-18 23:33:03 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 49.7
+2025-06-18 23:33:08 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:33:08 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:33:08 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4322
+2025-06-18 23:33:08 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 24
+2025-06-18 23:33:08 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:33:08 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.7
+2025-06-18 23:33:08 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.6
+2025-06-18 23:33:08 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.149s
+2025-06-18 23:33:08 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 50.9
+2025-06-18 23:33:13 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:33:13 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:33:13 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4392
+2025-06-18 23:33:13 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 20
+2025-06-18 23:33:13 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:33:13 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.8
+2025-06-18 23:33:13 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.7
+2025-06-18 23:33:13 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.147s
+2025-06-18 23:33:13 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 47.1
+2025-06-18 23:33:18 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:33:18 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:33:18 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4464
+2025-06-18 23:33:18 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 23
+2025-06-18 23:33:18 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:33:18 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 7.1
+2025-06-18 23:33:18 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 7.0
+2025-06-18 23:33:18 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.141s
+2025-06-18 23:33:18 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 42.3
+2025-06-18 23:33:23 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:33:23 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:33:23 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4532
+2025-06-18 23:33:23 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 19
+2025-06-18 23:33:23 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:33:23 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 7.1
+2025-06-18 23:33:23 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 7.0
+2025-06-18 23:33:23 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.140s
+2025-06-18 23:33:23 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 42.0
+2025-06-18 23:33:28 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:33:28 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:33:28 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4600
+2025-06-18 23:33:28 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 18
+2025-06-18 23:33:28 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:33:28 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 7.0
+2025-06-18 23:33:28 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.9
+2025-06-18 23:33:28 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.142s
+2025-06-18 23:33:28 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 44.4
+2025-06-18 23:33:33 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:33:33 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:33:33 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4666
+2025-06-18 23:33:33 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 26
+2025-06-18 23:33:33 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:33:33 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.9
+2025-06-18 23:33:33 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.8
+2025-06-18 23:33:33 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.146s
+2025-06-18 23:33:33 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 46.8
+2025-06-18 23:33:38 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:33:38 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:33:38 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4732
+2025-06-18 23:33:38 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 27
+2025-06-18 23:33:38 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:33:38 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.8
+2025-06-18 23:33:38 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.7
+2025-06-18 23:33:38 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.148s
+2025-06-18 23:33:38 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 48.6
+2025-06-18 23:33:43 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:33:43 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:33:43 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4798
+2025-06-18 23:33:43 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 28
+2025-06-18 23:33:43 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:33:43 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.7
+2025-06-18 23:33:43 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.6
+2025-06-18 23:33:43 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.150s
+2025-06-18 23:33:43 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 51.1
+2025-06-18 23:33:48 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:33:48 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:33:48 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4864
+2025-06-18 23:33:48 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 24
+2025-06-18 23:33:48 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:33:48 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.7
+2025-06-18 23:33:48 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.6
+2025-06-18 23:33:48 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.149s
+2025-06-18 23:33:48 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 51.6
+2025-06-18 23:33:53 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:33:53 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:33:53 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4928
+2025-06-18 23:33:53 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 23
+2025-06-18 23:33:53 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:33:53 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.6
+2025-06-18 23:33:53 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.5
+2025-06-18 23:33:53 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.152s
+2025-06-18 23:33:53 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 52.9
+2025-06-18 23:33:58 | INFO     | vehicle_detection.broadcaster | 📊 Performance Stats:
+2025-06-18 23:33:58 | INFO     | vehicle_detection.broadcaster |    Device: MPS
+2025-06-18 23:33:58 | INFO     | vehicle_detection.broadcaster |    Frames processed: 4994
+2025-06-18 23:33:58 | INFO     | vehicle_detection.broadcaster |    Current vehicles: 26
+2025-06-18 23:33:58 | INFO     | vehicle_detection.broadcaster |    Connected clients: 0
+2025-06-18 23:33:58 | INFO     | vehicle_detection.broadcaster |    Detection FPS: 6.6
+2025-06-18 23:33:58 | INFO     | vehicle_detection.broadcaster |    Broadcast FPS: 6.5
+2025-06-18 23:33:58 | INFO     | vehicle_detection.broadcaster |    Avg detection time: 0.151s
+2025-06-18 23:33:58 | INFO     | vehicle_detection.broadcaster |    Avg vehicles/frame: 50.7
+2025-06-18 23:34:00 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.215s for 2 frames
+2025-06-19 15:44:59 | INFO     | vehicle_detection | 🚀 Vehicle Detection Server
+2025-06-19 15:44:59 | INFO     | vehicle_detection.app | 🌟 M1 Pro Vehicle Detection Server
+2025-06-19 15:44:59 | INFO     | vehicle_detection.app | ==================================================
+2025-06-19 15:44:59 | INFO     | vehicle_detection.app | 📍 URL: http://0.0.0.0:1234
+2025-06-19 15:44:59 | INFO     | vehicle_detection.app | 🎯 Vehicle Classes: car, truck, bus, motorcycle, bicycle
+2025-06-19 15:44:59 | INFO     | vehicle_detection.app | 🔧 Configuration: type
+2025-06-19 15:44:59 | INFO     | vehicle_detection.app | ==================================================
+2025-06-19 15:44:59 | INFO     | vehicle_detection.app | 🚀 Starting M1 Pro Vehicle Detection Server...
+2025-06-19 15:44:59 | INFO     | vehicle_detection.app | 📁 Video path: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection-logic/resources/1.mp4
+2025-06-19 15:44:59 | INFO     | vehicle_detection.app | 🎯 Target FPS: 30
+2025-06-19 15:44:59 | INFO     | vehicle_detection.app | 🔧 Debug mode: False
+2025-06-19 15:44:59 | INFO     | vehicle_detection.app | 🧠 Initializing AI model...
+2025-06-19 15:44:59 | INFO     | vehicle_detection.device_optimizer | 🚀 Starting device optimization...
+2025-06-19 15:44:59 | INFO     | vehicle_detection.device_optimizer | ✓ MPS optimizations applied
+2025-06-19 15:44:59 | INFO     | vehicle_detection.device_optimizer | 📋 Generated 4 test frames
+2025-06-19 15:44:59 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8n.pt
+2025-06-19 15:44:59 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-19 15:45:02 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.738s/frame (2.950s total)
+2025-06-19 15:45:02 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-19 15:45:03 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.016s/frame (0.066s total)
+2025-06-19 15:45:03 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8n.pt results:
+2025-06-19 15:45:03 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.738s (1.4 FPS)
+2025-06-19 15:45:03 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.016s (60.8 FPS)
+2025-06-19 15:45:03 | INFO     | vehicle_detection.device_optimizer | 🏆 New best: yolov8n.pt on CPU
+2025-06-19 15:45:03 | INFO     | vehicle_detection.device_optimizer | 🏆 New best: yolov8n.pt on MPS
+2025-06-19 15:45:03 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8s.pt
+2025-06-19 15:45:03 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-19 15:45:03 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.109s/frame (0.436s total)
+2025-06-19 15:45:03 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-19 15:45:04 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.021s/frame (0.083s total)
+2025-06-19 15:45:04 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8s.pt results:
+2025-06-19 15:45:04 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.109s (9.2 FPS)
+2025-06-19 15:45:04 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.021s (48.0 FPS)
+2025-06-19 15:45:04 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8m.pt
+2025-06-19 15:45:04 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-19 15:50:10 | INFO     | vehicle_detection | 🚀 Vehicle Detection Server
+2025-06-19 15:50:10 | INFO     | vehicle_detection.app | 🌟 M1 Pro Vehicle Detection Server
+2025-06-19 15:50:10 | INFO     | vehicle_detection.app | ==================================================
+2025-06-19 15:50:10 | INFO     | vehicle_detection.app | 📍 URL: http://0.0.0.0:1234
+2025-06-19 15:50:10 | INFO     | vehicle_detection.app | 🎯 Vehicle Classes: car, truck, bus, motorcycle, bicycle
+2025-06-19 15:50:10 | INFO     | vehicle_detection.app | 🔧 Configuration: type
+2025-06-19 15:50:10 | INFO     | vehicle_detection.app | ==================================================
+2025-06-19 15:50:10 | INFO     | vehicle_detection.app | 🚀 Starting M1 Pro Vehicle Detection Server...
+2025-06-19 15:50:10 | INFO     | vehicle_detection.app | 📁 Video path: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection/resources/1.mp4
+2025-06-19 15:50:10 | INFO     | vehicle_detection.app | 🎯 Target FPS: 30
+2025-06-19 15:50:10 | INFO     | vehicle_detection.app | 🔧 Debug mode: False
+2025-06-19 15:50:10 | INFO     | vehicle_detection.app | 🧠 Initializing AI model...
+2025-06-19 15:50:10 | INFO     | vehicle_detection.device_optimizer | 🚀 Starting device optimization...
+2025-06-19 15:50:10 | INFO     | vehicle_detection.device_optimizer | ✓ MPS optimizations applied
+2025-06-19 15:50:10 | INFO     | vehicle_detection.device_optimizer | 📋 Generated 4 test frames
+2025-06-19 15:50:10 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8n.pt
+2025-06-19 15:50:10 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-19 15:50:16 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 1.507s/frame (6.027s total)
+2025-06-19 15:50:16 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-19 15:50:16 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.017s/frame (0.067s total)
+2025-06-19 15:50:16 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8n.pt results:
+2025-06-19 15:50:16 | INFO     | vehicle_detection.device_optimizer |    CPU: 1.507s (0.7 FPS)
+2025-06-19 15:50:16 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.017s (59.5 FPS)
+2025-06-19 15:50:16 | INFO     | vehicle_detection.device_optimizer | 🏆 New best: yolov8n.pt on CPU
+2025-06-19 15:50:16 | INFO     | vehicle_detection.device_optimizer | 🏆 New best: yolov8n.pt on MPS
+2025-06-19 15:50:16 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8s.pt
+2025-06-19 15:50:16 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-19 15:50:17 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.107s/frame (0.427s total)
+2025-06-19 15:50:17 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-19 15:50:17 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.021s/frame (0.084s total)
+2025-06-19 15:50:17 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8s.pt results:
+2025-06-19 15:50:17 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.107s (9.4 FPS)
+2025-06-19 15:50:17 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.021s (47.8 FPS)
+2025-06-19 15:50:17 | INFO     | vehicle_detection.device_optimizer | 🧠 Testing model: yolov8m.pt
+2025-06-19 15:50:17 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking CPU...
+2025-06-19 15:50:18 | INFO     | vehicle_detection.device_optimizer | 📊 CPU: 0.200s/frame (0.802s total)
+2025-06-19 15:50:18 | INFO     | vehicle_detection.device_optimizer | 🔍 Benchmarking MPS...
+2025-06-19 15:50:19 | INFO     | vehicle_detection.device_optimizer | 📊 MPS: 0.037s/frame (0.149s total)
+2025-06-19 15:50:19 | INFO     | vehicle_detection.device_optimizer | 📊 yolov8m.pt results:
+2025-06-19 15:50:19 | INFO     | vehicle_detection.device_optimizer |    CPU: 0.200s (5.0 FPS)
+2025-06-19 15:50:19 | INFO     | vehicle_detection.device_optimizer |    MPS: 0.037s (26.8 FPS)
+2025-06-19 15:50:19 | INFO     | vehicle_detection.device_optimizer | 🎯 Final Selection:
+2025-06-19 15:50:19 | INFO     | vehicle_detection.device_optimizer |    Model: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection/model/yolov8n.pt
+2025-06-19 15:50:19 | INFO     | vehicle_detection.device_optimizer |    Device: MPS
+2025-06-19 15:50:19 | INFO     | vehicle_detection.device_optimizer |    Performance: 0.017s/frame (59.5 FPS)
+2025-06-19 15:50:19 | INFO     | vehicle_detection.device_optimizer | 📊 Complete benchmark results:
+2025-06-19 15:50:19 | INFO     | vehicle_detection.device_optimizer |    yolov8n.pt: CPU=0.7fps, MPS=59.5fps
+2025-06-19 15:50:19 | INFO     | vehicle_detection.device_optimizer |    yolov8s.pt: CPU=9.4fps, MPS=47.8fps
+2025-06-19 15:50:19 | INFO     | vehicle_detection.device_optimizer |    yolov8m.pt: CPU=5.0fps, MPS=26.8fps
+2025-06-19 15:50:19 | INFO     | vehicle_detection.app | 🔍 Setting up vehicle detector...
+2025-06-19 15:50:19 | INFO     | vehicle_detection.detector | 🔧 Detector initialized: MPS
+2025-06-19 15:50:19 | INFO     | vehicle_detection.detector | 📋 Vehicle classes: car, truck, bus, motorcycle, bicycle
+2025-06-19 15:50:19 | INFO     | vehicle_detection.app | 📡 Starting video broadcaster...
+2025-06-19 15:50:19 | INFO     | vehicle_detection.broadcaster | 📹 Video properties: 1280x720, 25.0fps, 7737 frames
+2025-06-19 15:50:19 | INFO     | vehicle_detection.broadcaster | 🎥 Broadcaster initialized: /Users/alim/Documents/GUB Final Project/Ai-Traffic-Management/detection/resources/1.mp4
+2025-06-19 15:50:19 | INFO     | vehicle_detection.broadcaster | 📊 Batch size: 2
+2025-06-19 15:50:19 | INFO     | vehicle_detection.broadcaster | ▶️  Broadcasting started
+2025-06-19 15:50:19 | INFO     | vehicle_detection.app | ✅ Server startup complete!
+2025-06-19 15:50:19 | INFO     | vehicle_detection.app | 🌐 Access the server at: http://0.0.0.0:1234
+2025-06-19 15:50:19 | INFO     | vehicle_detection.app | 🔗 WebSocket endpoint: ws://0.0.0.0:1234/ws
+2025-06-19 15:50:19 | INFO     | vehicle_detection.app | 📊 Health check: http://0.0.0.0:1234/health
+2025-06-19 15:50:19 | INFO     | vehicle_detection.app | 🎮 Control endpoints:
+2025-06-19 15:50:19 | INFO     | vehicle_detection.app |    • POST /control/playback - Video playback control
+2025-06-19 15:50:19 | INFO     | vehicle_detection.app |    • POST /control/detection - Detection settings
+2025-06-19 15:50:19 | INFO     | vehicle_detection.app |    • POST /control/broadcast - Broadcasting control
+2025-06-19 15:50:19 | INFO     | vehicle_detection.app |    • POST /control/device - Device switching
+2025-06-19 15:50:19 | INFO     | vehicle_detection.app |    • POST /config - Configuration updates
+2025-06-19 15:50:19 | INFO     | vehicle_detection.broadcaster | 🚀 Starting broadcast loop
+2025-06-19 15:50:19 | WARNING  | vehicle_detection.detector | ⚠️  Slow detection: 0.232s for 2 frames
+2025-06-19 15:50:22 | INFO     | vehicle_detection.app | 🛑 Shutting down server...
+2025-06-19 15:50:22 | INFO     | vehicle_detection.broadcaster | ⏹️  Stopping broadcaster...
+2025-06-19 15:50:22 | INFO     | vehicle_detection.broadcaster | 🛑 Broadcast loop stopped
+2025-06-19 15:50:22 | INFO     | vehicle_detection.broadcaster | ✅ Broadcaster stopped
+2025-06-19 15:50:22 | INFO     | vehicle_detection.app | ✅ Server shutdown complete
