@@ -19,7 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.gub.features.dashboard.presentation.components.TopBar
+import com.gub.features.dashboard.presentation.components.TopBarDashboard
 import com.gub.features.dashboard.presentation.insights.UserInsightsDashboardCard
 import com.gub.features.dashboard.presentation.liveStatus.LiveStatus
 import com.gub.features.dashboard.presentation.overview.Overview
@@ -48,7 +48,7 @@ fun Dashboard() {
         }
     }
 
-    TopBar(
+    TopBarDashboard(
         hazeState,
         selectedTab,
         onSelect = { selectedTab = it },

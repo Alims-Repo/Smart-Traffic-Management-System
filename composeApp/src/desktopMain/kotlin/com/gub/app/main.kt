@@ -5,7 +5,10 @@
  */
 package com.gub.app
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
@@ -34,8 +37,10 @@ fun main() = application {
         ),
         resizable = true,
     ) {
-        VehicleDetectionTheme {
-            TrafficManagementApp()
+        val dark = isSystemInDarkTheme()
+        val isDarkTheme = remember { mutableStateOf(dark) }
+        VehicleDetectionTheme(darkTheme = isDarkTheme.value) {
+            TrafficManagementApp(isDarkTheme)
         }
     }
 }

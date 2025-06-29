@@ -21,7 +21,7 @@ import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.hazeEffect
 
 @Composable
-fun TopBar(hazeState: HazeState, selectedTab: Int, onSelect: (Int) -> Unit, topBarHeight: (Int) -> Unit) {
+fun TopBarDashboard(hazeState: HazeState, selectedTab: Int, onSelect: (Int) -> Unit, topBarHeight: (Int) -> Unit) {
 
     var showQuickActions by remember { mutableStateOf(false) }
     var selectedTimeFrame by remember { mutableStateOf(0) }

@@ -1,7 +1,8 @@
 package com.gub.features.dashboard.data.repository
 
+import com.gub.app.Const.BASE_URL
 import com.gub.core.domain.Response
-import com.gub.models.ModelSystemStatus
+import com.gub.models.core.ModelSystemStatus
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -11,7 +12,7 @@ import java.net.URI
 
 class SystemStatusWebSocket(
     private val onMessageReceived: (Response<ModelSystemStatus>) -> Unit
-) : WebSocketClient(URI("ws://localhost:8080/ws/system-status")) {
+) : WebSocketClient(URI("ws://$BASE_URL/ws/system-status")) {
 
     private var lastPingTime: Long = 0L
 

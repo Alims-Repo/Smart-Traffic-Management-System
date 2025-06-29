@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gub.core.domain.Response
-import com.gub.models.ModelSystemStatus
+import com.gub.models.core.ModelSystemStatus
 
 @Composable
 fun SystemStatusCard(response : Response<ModelSystemStatus>) {
@@ -56,7 +56,7 @@ fun SystemStatusCard(response : Response<ModelSystemStatus>) {
                         color = if (memoryUsages > 80) Color(0xFFFF9800) else Color(0xFF4CAF50)
                     )
                     StatusItem(
-                        label = "Latency", value = "${response.data.latencyMs}ms",
+                        label = "Network", value = "${response.data.latencyMs}ms",
                         color = if (response.data.latencyMs > 100) Color(0xFFFF9800) else Color(0xFF4CAF50)
                     )
                 }

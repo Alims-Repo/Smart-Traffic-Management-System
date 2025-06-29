@@ -1,7 +1,7 @@
 package com.gub.routes
 
-import com.gub.models.LatencyPing
-import com.gub.models.LatencyPong
+import com.gub.models.core.LatencyPing
+import com.gub.models.core.LatencyPong
 import com.gub.services.StatusService
 import io.ktor.server.application.Application
 import io.ktor.server.routing.routing

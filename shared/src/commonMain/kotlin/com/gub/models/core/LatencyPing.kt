@@ -1,4 +1,4 @@
-package com.gub.models
+package com.gub.models.core
 
 import kotlinx.serialization.Serializable
 

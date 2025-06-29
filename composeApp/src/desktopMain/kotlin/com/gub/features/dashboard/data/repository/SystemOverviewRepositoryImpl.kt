@@ -30,6 +30,7 @@ class SystemOverviewRepositoryImpl(
             } catch (e: Exception) {
                 // Handle error or emit default values
                 emit(ModelSystemOverview())
+                delay(5000) // Refresh every 5 seconds
             }
         }
     }

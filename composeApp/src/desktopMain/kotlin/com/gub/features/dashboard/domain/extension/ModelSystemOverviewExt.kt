@@ -21,7 +21,7 @@ fun ModelSystemOverview.weatherTempSubText() = when {
     else -> "Hot"
 }
 
-fun ModelSystemOverview.aiResponseTimeValue() = "${String.format(Locale.US, "%.1f", this.aiResponseTime)}%"
+fun ModelSystemOverview.aiResponseTimeValue() = "${String.format(Locale.US, "%.1f", this.aiResponseTime)}ms"
 
 fun ModelSystemOverview.aiResponseTimeSubText() = when {
     this.aiResponseTime < 1.0 -> "Excellent"
@@ -30,7 +30,7 @@ fun ModelSystemOverview.aiResponseTimeSubText() = when {
     else -> "Poor"
 }
 
-fun ModelSystemOverview.currentFlowValue() = "${String.format(Locale.US, "%.1f", this.aiResponseTime)}%"
+fun ModelSystemOverview.currentFlowValue() = "${String.format(Locale.US, "%.1f", this.currentFlow)}/hour"
 
 fun ModelSystemOverview.currentFlowSubText() = when {
     this.currentFlow < 1.0 -> "Low"
@@ -39,7 +39,7 @@ fun ModelSystemOverview.currentFlowSubText() = when {
     else -> "Very High"
 }
 
-fun ModelSystemOverview.avgWaitTimeValue() = "${String.format(Locale.US, "%.1f", this.aiResponseTime)}%"
+fun ModelSystemOverview.avgWaitTimeValue() = "${String.format(Locale.US, "%.1f", this.avgWaitTime)} minutes"
 
 fun ModelSystemOverview.avgWaitTimeSubText() = when {
     this.avgWaitTime < 1.0 -> "Excellent"

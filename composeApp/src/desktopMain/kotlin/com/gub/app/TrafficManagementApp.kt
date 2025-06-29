@@ -21,7 +21,7 @@ import com.gub.features.monitoring.presentation.Monitoring
 import com.gub.features.settings.presentation.Settings
 
 @Composable
-fun TrafficManagementApp() {
+fun TrafficManagementApp(isDarkTheme: MutableState<Boolean>) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -39,7 +39,8 @@ fun TrafficManagementApp() {
                 isAiEnabled = aiEnabled,
                 viewModel = viewModelSystem,
                 onTabSelected = { selectedTab = it },
-                onAiToggle = { aiEnabled = it }
+                onAiToggle = { aiEnabled = it },
+                isDarkTheme = isDarkTheme
             )
 
             Box(

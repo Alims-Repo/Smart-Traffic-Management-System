@@ -16,7 +16,7 @@ from src.core.device_optimizer import DeviceOptimizer
 from src.core.detector import VehicleDetector
 from src.core.broadcaster import VideoBroadcaster
 from src.server.handlers import WebSocketHandlers, HTTPHandlers
-from src.server.enhanced_handlers import EnhancedHTTPHandlers  # Import enhanced handlers
+from src.server.enhanced_handlers import EnhancedHTTPHandlers
 
 config = get_config()
 logger = get_logger("app")
@@ -31,50 +31,108 @@ class VehicleDetectionServer:
         self.model = None
         self.device = None
 
-        # Handlers
+        # Handlers - initialize as None, will be set during startup
         self.ws_handlers: Optional[WebSocketHandlers] = None
         self.http_handlers: Optional[HTTPHandlers] = None
-        self.enhanced_handlers: Optional[EnhancedHTTPHandlers] = None  # Add enhanced handlers
+        self.enhanced_handlers: Optional[EnhancedHTTPHandlers] = None
 
-        self._setup_routes()
         self._setup_middleware()
-
-    def _setup_routes(self):
-        """Setup web routes"""
-        # WebSocket endpoint
-        self.app.router.add_get("/ws", self.websocket_handler)
-
-        # HTTP endpoints - will be configured after handlers are created
-        self.app.on_startup.append(self._setup_http_routes)
+        self._setup_basic_routes()
 
         # Lifecycle hooks
         self.app.on_startup.append(self.on_startup)
         self.app.on_shutdown.append(self.on_shutdown)
 
-    async def _setup_http_routes(self, app):
-        """Setup HTTP routes after handlers are initialized"""
+    def _setup_basic_routes(self):
+        """Setup basic routes that don't require handlers"""
+        # WebSocket endpoint
+        self.app.router.add_get("/ws", self.websocket_handler)
+
+        # Basic health check that works before full initialization
+        self.app.router.add_get("/health", self.health_endpoint)
+        self.app.router.add_get("/stats", self.stats_endpoint)
+        self.app.router.add_get("/performance", self.performance_endpoint)
+        self.app.router.add_get("/api", self.api_endpoint)
+        self.app.router.add_get("/config", self.config_endpoint)
+        self.app.router.add_get("/clients", self.clients_endpoint)
+
+        # POST endpoints
+        self.app.router.add_post("/config", self.update_config_endpoint)
+        self.app.router.add_post("/control/playback", self.control_playback_endpoint)
+        self.app.router.add_post("/control/detection", self.control_detection_endpoint)
+        self.app.router.add_post("/control/broadcast", self.control_broadcast_endpoint)
+        self.app.router.add_post("/control/device", self.control_device_endpoint)
+
+    # Endpoint wrappers that delegate to handlers when available
+    async def health_endpoint(self, request):
+        """Health endpoint wrapper"""
         if self.http_handlers:
-            # Basic endpoints
-            self.app.router.add_get("/health", self.http_handlers.health_check)
-            self.app.router.add_get("/stats", self.http_handlers.get_stats)
-            self.app.router.add_get("/performance", self.http_handlers.get_performance)
-            self.app.router.add_get("/api", self.http_handlers.api_info)
+            return await self.http_handlers.health_check(request)
+        return web.json_response({
+            "status": "initializing",
+            "service": "Vehicle Detection Server",
+            "timestamp": "2025-06-23T05:44:07Z"
+        })
 
+    async def stats_endpoint(self, request):
+        """Stats endpoint wrapper"""
+        if self.http_handlers:
+            return await self.http_handlers.get_stats(request)
+        return web.json_response({"error": "Server not ready"}, status=503)
+
+    async def performance_endpoint(self, request):
+        """Performance endpoint wrapper"""
+        if self.http_handlers:
+            return await self.http_handlers.get_performance(request)
+        return web.json_response({"error": "Server not ready"}, status=503)
+
+    async def api_endpoint(self, request):
+        """API info endpoint wrapper"""
+        if self.http_handlers:
+            return await self.http_handlers.api_info(request)
+        return web.json_response({"error": "Server not ready"}, status=503)
+
+    async def config_endpoint(self, request):
+        """Config endpoint wrapper"""
+        if self.http_handlers:
+            return await self.http_handlers.get_config(request)
+        return web.json_response({"error": "Server not ready"}, status=503)
+
+    async def clients_endpoint(self, request):
+        """Clients endpoint wrapper"""
         if self.enhanced_handlers:
-            # Enhanced control endpoints
-            self.app.router.add_get("/config", self.http_handlers.get_config)
-            self.app.router.add_post("/config", self.enhanced_handlers.update_config)
+            return await self.enhanced_handlers.get_client_management(request)
+        return web.json_response({"error": "Server not ready"}, status=503)
 
-            # Control endpoints
-            self.app.router.add_post("/control/playback", self.enhanced_handlers.control_playback)
-            self.app.router.add_post("/control/detection", self.enhanced_handlers.update_detection_settings)
-            self.app.router.add_post("/control/broadcast", self.enhanced_handlers.control_broadcast)
-            self.app.router.add_post("/control/device", self.enhanced_handlers.switch_device)
+    async def update_config_endpoint(self, request):
+        """Update config endpoint wrapper"""
+        if self.enhanced_handlers:
+            return await self.enhanced_handlers.update_config(request)
+        return web.json_response({"error": "Server not ready"}, status=503)
 
-            # Client management
-            self.app.router.add_get("/clients", self.enhanced_handlers.get_client_management)
+    async def control_playback_endpoint(self, request):
+        """Control playback endpoint wrapper"""
+        if self.enhanced_handlers:
+            return await self.enhanced_handlers.control_playback(request)
+        return web.json_response({"error": "Server not ready"}, status=503)
 
-            logger.info("✅ Enhanced control endpoints registered")
+    async def control_detection_endpoint(self, request):
+        """Control detection endpoint wrapper"""
+        if self.enhanced_handlers:
+            return await self.enhanced_handlers.update_detection_settings(request)
+        return web.json_response({"error": "Server not ready"}, status=503)
+
+    async def control_broadcast_endpoint(self, request):
+        """Control broadcast endpoint wrapper"""
+        if self.enhanced_handlers:
+            return await self.enhanced_handlers.control_broadcast(request)
+        return web.json_response({"error": "Server not ready"}, status=503)
+
+    async def control_device_endpoint(self, request):
+        """Control device endpoint wrapper"""
+        if self.enhanced_handlers:
+            return await self.enhanced_handlers.switch_device(request)
+        return web.json_response({"error": "Server not ready"}, status=503)
 
     def _setup_middleware(self):
         """Setup middleware for CORS, logging, etc."""
@@ -93,6 +151,9 @@ class VehicleDetectionServer:
             """Error handling middleware"""
             try:
                 return await handler(request)
+            except web.HTTPException as e:
+                # Let HTTP exceptions pass through (like 404)
+                raise
             except Exception as e:
                 logger.error(f"❌ Request error on {request.path}: {e}")
                 if config.DEBUG:

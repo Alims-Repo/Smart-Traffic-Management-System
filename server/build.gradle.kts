@@ -28,6 +28,13 @@ dependencies {
 
     // WebSockets
     implementation("io.ktor:ktor-server-websockets:2.3.10")
+    implementation("io.ktor:ktor-server-cio-jvm:2.3.11")
+
+    //
+    implementation("io.ktor:ktor-client-core:2.1.21")
+    implementation("io.ktor:ktor-client-cio:2.1.21")
+    implementation("io.ktor:ktor-client-content-negotiation:2.1.21")
+    implementation("io.ktor:ktor-client-logging:2.1.21")
 
     // Content Negotiation + JSON
     implementation("io.ktor:ktor-server-content-negotiation:2.3.10")
@@ -35,7 +42,6 @@ dependencies {
 
     // Kotlinx Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-
 
     testImplementation(libs.ktor.serverTestHost)
     testImplementation(libs.kotlin.testJunit)

@@ -1,7 +1,7 @@
 package com.gub.services
 
-import com.gub.models.NetworkInfo
-import com.gub.models.ModelSystemStatus
+import com.gub.models.core.NetworkInfo
+import com.gub.models.core.ModelSystemStatus
 import oshi.SystemInfo
 import oshi.hardware.CentralProcessor.TickType
 import java.time.LocalDateTime

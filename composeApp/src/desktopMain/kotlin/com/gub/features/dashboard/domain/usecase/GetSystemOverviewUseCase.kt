@@ -9,10 +9,12 @@ class GetSystemOverviewUseCase(
     private val repository: SystemOverviewRepository
 ) {
     suspend operator fun invoke(): Response<ModelSystemOverview> {
+        print("Hello from GetSystemOverviewUseCase - 0")
         return repository.getSystemOverview()
     }
 
     fun getStream(): Flow<ModelSystemOverview> {
+        print("Hello from GetSystemOverviewUseCase - 1")
         return repository.getSystemOverviewStream()
     }
 }

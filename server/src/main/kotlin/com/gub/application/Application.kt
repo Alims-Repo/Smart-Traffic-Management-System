@@ -1,15 +1,18 @@
 package com.gub.application
 
 import com.gub.SERVER_PORT
+import com.gub.routes.dashboardRoutes
 import com.gub.routes.systemRoutes
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.*
+import io.ktor.server.cio.CIO
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import oshi.SystemInfo
 import oshi.hardware.CentralProcessor.TickType
 import io.ktor.server.websocket.WebSockets
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import kotlinx.serialization.json.Json
 
 fun main() {
     embeddedServer(
@@ -25,4 +28,5 @@ fun Application.module() {
     }
 
     systemRoutes()
+    dashboardRoutes()
 }

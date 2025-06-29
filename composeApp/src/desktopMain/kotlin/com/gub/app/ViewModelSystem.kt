@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gub.core.domain.Response
 import com.gub.features.dashboard.data.repository.SystemStatusWebSocket
-import com.gub.models.ModelSystemStatus
+import com.gub.models.core.ModelSystemStatus
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
