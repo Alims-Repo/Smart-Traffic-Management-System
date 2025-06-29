@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Traffic Analytics Platform</title>
+    <meta name="description" content="Comprehensive real-time traffic management and analytics platform with AI-powered vehicle detection and predictive analytics">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚦</text></svg>">
+
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Smart Traffic Analytics Platform">
+    <meta property="og:description" content="Real-time traffic management with AI-powered analytics">
+    <meta property="og:type" content="website">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-card: #374151;
+            --border-color: #4b5563;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .header {
+            background: rgba(17, 24, 39, 0.95);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-title p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Architecture Section */
+        .architecture-diagram {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .layer {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .layer h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .layer-components {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .component {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin: 0.5rem 0;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 0.25rem 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .tech-category h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tech-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tech-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--bg-secondary);
+            border-radius: 1rem;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Installation Section */
+        .code-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            opacity: 1;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 1.5rem;
+            text-align: left;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-secondary);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-stack {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scroll animations */
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .section.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+    <nav class="nav">
+        <a href="#" class="logo">
+            🚦 Smart Traffic Analytics
+        </a>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#tech-stack">Technology</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#docs">Documentation</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Smart Traffic Analytics Platform</h1>
+        <p>Comprehensive real-time traffic management and analytics platform built with modern technologies, featuring live vehicle detection, predictive analytics, and intelligent traffic optimization.</p>
+
+        <div class="badges">
+            <span class="badge">Android</span>
+            <span class="badge">Kotlin</span>
+            <span class="badge">Ktor</span>
+            <span class="badge">Python AI</span>
+            <span class="badge">Google Cloud</span>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="https://github.com/Alims-Repo/Smart-Traffic-Management-System" class="btn btn-primary">
+                📱 View on GitHub
+            </a>
+            <a href="#demo" class="btn btn-secondary">
+                🎬 Live Demo
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Architecture Section -->
+<section id="architecture" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>🏗️ System Architecture</h2>
+            <p>Modern 3-layer architecture designed for scalability, performance, and real-time processing</p>
+        </div>
+
+        <div class="architecture-diagram">
+            <div class="layer">
+                <h3>Frontend Layer - Kotlin Jetpack Compose</h3>
+                <div class="layer-components">
+                    <div class="component">Dashboard</div>
+                    <div class="component">Analytics</div>
+                    <div class="component">Monitoring</div>
+                    <div class="component">Settings</div>
+                    <div class="component">Reports</div>
+                    <div class="component">Live Feed</div>
+                </div>
+            </div>
+            <div class="arrow">⬇</div>
+
+            <div class="layer">
+                <h3>Backend Layer - Kotlin + Ktor</h3>
+                <div class="layer-components">
+                    <div class="component">REST APIs</div>
+                    <div class="component">WebSocket Live Data</div>
+                    <div class="component">Real-time Processing</div>
+                </div>
+            </div>
+            <div class="arrow">⬇</div>
+
+            <div class="layer">
+                <h3>AI/ML Processing Layer - Python</h3>
+                <div class="layer-components">
+                    <div class="component">Vehicle Detection</div>
+                    <div class="component">Traffic Analysis</div>
+                    <div class="component">Predictive Analytics</div>
+                </div>
+            </div>
+            <div class="arrow">⬇</div>
+
+            <div class="layer">
+                <h3>Infrastructure - Google Cloud Platform</h3>
+                <div class="layer-components">
+                    <div class="component">Custom VM Instance Deployment</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>🚀 Platform Features</h2>
+            <p>Comprehensive suite of traffic management and analytics tools</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Analytics Dashboard</h3>
+                <p>Real-time insights and predictive analytics for traffic optimization</p>
+                <ul class="feature-list">
+                    <li>Real-time Traffic Metrics</li>
+                    <li>AI-powered Predictions</li>
+                    <li>Interactive Charts</li>
+                    <li>Peak Hour Analysis</li>
+                    <li>Export Capabilities</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🖥️</span>
+                <h3>Main Dashboard</h3>
+                <p>Comprehensive overview of your traffic management system</p>
+                <ul class="feature-list">
+                    <li>System Overview</li>
+                    <li>Quick Actions</li>
+                    <li>Alert Management</li>
+                    <li>Performance Metrics</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">📹</span>
+                <h3>Live Monitoring</h3>
+                <p>Real-time video feeds with AI-powered vehicle detection</p>
+                <ul class="feature-list">
+                    <li>Real-time Video Feed</li>
+                    <li>Vehicle Detection</li>
+                    <li>Object Tracking</li>
+                    <li>Incident Detection</li>
+                    <li>Multi-camera Support</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">⚙️</span>
+                <h3>Settings & Configuration</h3>
+                <p>Customizable system settings and preferences</p>
+                <ul class="feature-list">
+                    <li>User Preferences</li>
+                    <li>System Configuration</li>
+                    <li>Alert Settings</li>
+                    <li>Data Management</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🤖</span>
+                <h3>AI & Machine Learning</h3>
+                <p>Advanced AI models for vehicle detection and traffic prediction</p>
+                <ul class="feature-list">
+                    <li>YOLO v8 Vehicle Detection</li>
+                    <li>95%+ Detection Accuracy</li>
+                    <li>30+ FPS Processing</li>
+                    <li>Predictive Analytics</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🎨</span>
+                <h3>Modern UI/UX</h3>
+                <p>Beautiful, responsive interface with Material Design 3</p>
+                <ul class="feature-list">
+                    <li>Material Design 3</li>
+                    <li>Light/Dark Mode</li>
+                    <li>Responsive Layout</li>
+                    <li>Real-time Updates</li>
+                    <li>Accessibility Features</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Performance Stats -->
+<section class="section">
+    <div class="container">
+        <div class="stats">
+            <div class="section-title">
+                <h2>📈 Performance Metrics</h2>
+                <p>Built for scale and optimized for performance</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>95%+</h3>
+                    <p>Vehicle Detection Accuracy</p>
+                </div>
+                <div class="stat-item">
+                    <h3>30+</h3>
+                    <p>FPS Video Processing</p>
+                </div>
+                <div class="stat-item">
+                    <h3>94%</h3>
+                    <p>Traffic Prediction Confidence</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99.9%</h3>
+                    <p>System Uptime</p>
+                </div>
+                <div class="stat-item">
+                    <h3>&lt;200ms</h3>
+                    <p>Average Response Time</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>Requests per Second</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tech Stack Section -->
+<section id="tech-stack" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>🛠️ Technology Stack</h2>
+            <p>Built with cutting-edge technologies for optimal performance</p>
+        </div>
+
+        <div class="tech-stack">
+            <div class="tech-category">
+                <h3>Frontend (Android)</h3>
+                <ul class="tech-list">
+                    <li>Jetpack Compose <span class="tech-badge">UI</span></li>
+                    <li>Kotlin <span class="tech-badge">Language</span></li>
+                    <li>MVVM Architecture <span class="tech-badge">Pattern</span></li>
+                    <li>Material Design 3 <span class="tech-badge">Design</span></li>
+                    <li>Retrofit + OkHttp <span class="tech-badge">Network</span></li>
+                    <li>WebSocket <span class="tech-badge">Real-time</span></li>
+                </ul>
+            </div>
+
+            <div class="tech-category">
+                <h3>Backend (API Server)</h3>
+                <ul class="tech-list">
+                    <li>Ktor Framework <span class="tech-badge">Server</span></li>
+                    <li>Kotlin <span class="tech-badge">Language</span></li>
+                    <li>PostgreSQL <span class="tech-badge">Database</span></li>
+                    <li>JWT Authentication <span class="tech-badge">Auth</span></li>
+                    <li>WebSocket <span class="tech-badge">Real-time</span></li>
+                    <li>OpenAPI/Swagger <span class="tech-badge">Docs</span></li>
+                </ul>
+            </div>
+
+            <div class="tech-category">
+                <h3>AI/ML Processing</h3>
+                <ul class="tech-list">
+                    <li>Python <span class="tech-badge">Language</span></li>
+                    <li>OpenCV <span class="tech-badge">Vision</span></li>
+                    <li>TensorFlow/PyTorch <span class="tech-badge">ML</span></li>
+                    <li>YOLO v8 <span class="tech-badge">Detection</span></li>
+                    <li>NumPy <span class="tech-badge">Compute</span></li>
+                    <li>FFmpeg <span class="tech-badge">Video</span></li>
+                </ul>
+            </div>
+
+            <div class="tech-category">
+                <h3>Infrastructure</h3>
+                <ul class="tech-list">
+                    <li>Google Cloud Platform <span class="tech-badge">Cloud</span></li>
+                    <li>Custom VM Instance <span class="tech-badge">Compute</span></li>
+                    <li>Cloud Storage <span class="tech-badge">Storage</span></li>
+                    <li>Cloud SQL <span class="tech-badge">Database</span></li>
+                    <li>Docker + Kubernetes <span class="tech-badge">Deploy</span></li>
+                    <li>Cloud Monitoring <span class="tech-badge">Monitor</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Installation Section -->
+<section id="installation" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>📦 Installation Guide</h2>
+            <p>Get started with the Smart Traffic Analytics Platform</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3>Frontend Setup</h3>
+                <p>Android application with Jetpack Compose</p>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <pre># Clone the repository
+git clone https://github.com/Alims-Repo/smart-traffic-analytics.git
+cd smart-traffic-analytics
+
+# Open Android project
+cd frontend
+# Open in Android Studio and sync project</pre>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">⚙️</span>
+                <h3>Backend Setup</h3>
+                <p>Ktor server with Kotlin</p>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <pre># Navigate to backend directory
+cd backend
+
+# Install dependencies
+./gradlew build
+
+# Run the server
+./gradlew run</pre>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🤖</span>
+                <h3>AI Model Setup</h3>
+                <p>Python-based AI processing service</p>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <pre># Navigate to AI directory
+cd ai-processing
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the AI service
+python main.py</pre>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">☁️</span>
+                <h3>Google Cloud Deployment</h3>
+                <p>Deploy to Google Cloud Platform</p>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <pre># Authenticate with Google Cloud
+gcloud auth login
+
+# Set project
+gcloud config set project your-project-id
+
+# Deploy to VM
+gcloud compute scp --recursive . instance-name:~/app --zone=your-zone</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-card" style="margin-top: 2rem;">
+            <span class="feature-icon">🐳</span>
+            <h3>Docker Deployment</h3>
+            <p>Containerized deployment with Docker Compose</p>
+            <div class="code-block">
+                <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                <pre># Build and run with Docker Compose
+docker-compose up -d
+
+# Scale services
+docker-compose up --scale backend=3 --scale ai-service=2
+
+# View logs
+docker-compose logs -f</pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- API Documentation -->
+<section id="docs" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>📚 API Documentation</h2>
+            <p>Comprehensive API reference and WebSocket events</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🔗</span>
+                <h3>REST Endpoints</h3>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <pre>GET /api/v1/analytics/current
+GET /api/v1/traffic/volume/{timeRange}
+GET /api/v1/predictions/traffic
+POST /api/v1/export/data
+WebSocket /ws/live-updates</pre>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🔄</span>
+                <h3>WebSocket Events</h3>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                    <pre>{
+  "type": "traffic_update",
+  "data": {
+    "vehicleCount": 245,
+    "averageSpeed": 45.2,
+    "congestionLevel": 0.3,
+    "timestamp": "2025-06-29T05:39:03Z"
+  }
+}</pre>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🔐</span>
+                <h3>Authentication</h3>
+                <p>JWT-based authentication system</p>
+                <ul class="feature-list">
+                    <li>JWT Token Authentication</li>
+                    <li>Secure Token Storage</li>
+                    <li>Automatic Token Refresh</li>
+                    <li>Role-based Access Control</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Real-time Features</h3>
+                <p>Live data updates and streaming</p>
+                <ul class="feature-list">
+                    <li>Traffic Metrics (30s updates)</li>
+                    <li>Vehicle Detection (Real-time)</li>
+                    <li>Predictive Analytics (5min)</li>
+                    <li>Video Streams (30 FPS)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>❓ Frequently Asked Questions</h2>
+            <p>Everything you need to know about the platform</p>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                What platforms does the application support?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                The Smart Traffic Analytics Platform is built as an Android application using Kotlin and Jetpack Compose. It supports Android 7.0 (API level 24) and above. The backend services are platform-independent and can run on any cloud infrastructure.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                How accurate is the vehicle detection system?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                Our AI-powered vehicle detection system uses YOLO v8 and achieves 95%+ accuracy in vehicle detection. It can process video streams at 30+ FPS and supports detection of cars, trucks, motorcycles, and buses in various weather and lighting conditions.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                What are the system requirements for deployment?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                For development: Android Studio, JDK 11+, Python 3.9+, and Google Cloud SDK. For production deployment: Google Cloud Platform with custom VM instances, minimum 4 vCPUs, 16GB RAM, and 50GB storage. Docker support is available for containerized deployment.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                Can the system handle multiple camera feeds simultaneously?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                Yes, the platform supports multi-camera monitoring with simultaneous processing of multiple video streams. The AI processing layer can handle multiple RTMP streams and provides real-time analysis for each camera feed with centralized dashboard monitoring.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                Is there API access for third-party integrations?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                Absolutely! The platform provides comprehensive REST APIs and WebSocket connections for real-time data access. Full API documentation is available with OpenAPI/Swagger specification, including endpoints for analytics, traffic data, predictions, and data export.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFAQ(this)">
+                What kind of predictive analytics does the system provide?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                The system provides traffic volume predictions with 94% confidence levels, peak hour forecasting with 91% accuracy, real-time incident probability assessment, and weather impact analysis. Predictions are updated every 5 minutes using advanced machine learning models.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Roadmap Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>🔮 Development Roadmap</h2>
+            <p>Exciting features and improvements coming soon</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">📅</span>
+                <h3>Q3 2025</h3>
+                <ul class="feature-list">
+                    <li>Mobile app optimization</li>
+                    <li>Advanced AI predictions</li>
+                    <li>Multi-city deployment</li>
+                    <li>Real-time traffic optimization</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🚀</span>
+                <h3>Q4 2025</h3>
+                <ul class="feature-list">
+                    <li>Edge computing integration</li>
+                    <li>5G network support</li>
+                    <li>AR/VR monitoring interface</li>
+                    <li>IoT sensor integration</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>📞 Get in Touch</h2>
+            <p>Ready to revolutionize your traffic management system?</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">📧</span>
+                <h3>Email Support</h3>
+                <p>Get technical support and ask questions</p>
+                <a href="mailto:support@traffic-analytics.com" class="btn btn-primary" style="margin-top: 1rem;">
+                    Contact Support
+                </a>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">💬</span>
+                <h3>Community Discord</h3>
+                <p>Join our developer community</p>
+                <a href="https://discord.gg/traffic-analytics" class="btn btn-primary" style="margin-top: 1rem;">
+                    Join Discord
+                </a>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">📖</span>
+                <h3>Documentation</h3>
+                <p>Comprehensive guides and tutorials</p>
+                <a href="https://docs.traffic-analytics.com" class="btn btn-primary" style="margin-top: 1rem;">
+                    View Docs
+                </a>
+            </div>
+
+            <div class="feature-card">
+                <span class="feature-icon">🎥</span>
+                <h3>Video Tutorials</h3>
+                <p>Step-by-step video guides</p>
+                <a href="https://youtube.com/traffic-analytics" class="btn btn-primary" style="margin-top: 1rem;">
+                    Watch Videos
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>🚦 Smart Traffic Analytics</h3>
+            <p>Built with ❤️ by Alims-Repo</p>
+            <p>Last Updated: 2025-06-29 05:39:03 UTC</p>
+            <p>Version: 1.0.0</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Platform</h3>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#tech-stack">Technology</a></li>
+                <li><a href="#installation">Installation</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="https://github.com/Alims-Repo/smart-traffic-analytics">GitHub Repository</a></li>
+                <li><a href="https://api.traffic-analytics.com/docs">API Documentation</a></li>
+                <li><a href="https://docs.traffic-analytics.com">User Guide</a></li>
+                <li><a href="https://github.com/Alims-Repo/smart-traffic-analytics/issues">Report Issues</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Community</h3>
+            <ul>
+                <li><a href="https://discord.gg/traffic-analytics">Discord Server</a></li>
+                <li><a href="https://youtube.com/traffic-analytics">YouTube Channel</a></li>
+                <li><a href="mailto:support@traffic-analytics.com">Email Support</a></li>
+                <li><a href="https://github.com/Alims-Repo">Follow on GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Smart Traffic Analytics Platform. Built with modern technologies for intelligent traffic management.</p>
+        <p>⭐ Star this repository if you find it helpful!</p>
+    </div>
+</footer>
+
+<script>
+    // Theme toggle functionality
+    function toggleTheme() {
+        const body = document.body;
+        const themeIcon = document.querySelector('.theme-icon');
+
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            themeIcon.textContent = '🌙';
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '☀️';
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    // Load saved theme
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme');
+        const themeIcon = document.querySelector('.theme-icon');
+
+        if (savedTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '☀️';
+        }
+    });
+
+    // FAQ toggle functionality
+    function toggleFAQ(button) {
+        const answer = button.nextElementSibling;
+        const icon = button.querySelector('span');
+
+        if (answer.classList.contains('active')) {
+            answer.classList.remove('active');
+            icon.textContent = '+';
+        } else {
+            // Close all other FAQs
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+            document.querySelectorAll('.faq-question span').forEach(s => s.textContent = '+');
+
+            // Open current FAQ
+            answer.classList.add('active');
+            icon.textContent = '−';
+        }
+    }
+
+    // Copy to clipboard functionality
+    function copyToClipboard(button) {
+        const codeBlock = button.nextElementSibling;
+        const text = codeBlock.textContent;
+
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            });
+        } else {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            button.textContent = 'Copied!';
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+        }
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections for scroll animations
+    document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Mobile menu functionality (basic)
+    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Header scroll effect
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.style.backdropFilter = 'blur(20px)';
+        } else {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.backdropFilter = 'blur(10px)';
+        }
+    });
+
+    // Add some interactive hover effects
+    document.querySelectorAll('.feature-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Counter animation for stats
+    function animateCounter(element, target, duration = 2000) {
+        let start = 0;
+        const increment = target / (duration / 16);
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+                element.textContent = target + (element.dataset.suffix || '');
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start) + (element.dataset.suffix || '');
+            }
+        }, 16);
+    }
+
+    // Trigger counter animations when stats section is visible
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.stat-item h3');
+                counters.forEach(counter => {
+                    const text = counter.textContent;
+                    const number = parseInt(text.replace(/[^\d]/g, ''));
+                    if (number) {
+                        counter.dataset.suffix = text.replace(/[\d]/g, '');
+                        animateCounter(counter, number);
+                    }
+                });
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stats').forEach(stats => {
+        statsObserver.observe(stats);
+    });
+</script>
+</body>
+</html>
