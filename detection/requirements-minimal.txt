@@ -1,0 +1,4 @@
+# Minimal dependencies for testing and development
+aiohttp==3.8.6
+numpy==1.24.3
+psutil==5.9.5

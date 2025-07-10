@@ -14,8 +14,13 @@ if ! command -v docker &> /dev/null; then
     exit 1
 fi
 
-if ! command -v docker-compose &> /dev/null; then
-    echo "❌ Docker Compose is not installed or not in PATH"
+# Check if Docker Compose is available (either docker-compose or docker compose)
+if command -v docker-compose &> /dev/null; then
+    DOCKER_COMPOSE="docker-compose"
+elif docker compose version &> /dev/null; then
+    DOCKER_COMPOSE="docker compose"
+else
+    echo "❌ Docker Compose is not available"
     exit 1
 fi
 
@@ -40,10 +45,10 @@ fi
 
 # Build and start services
 echo "🏗️  Building Docker images..."
-docker-compose build --no-cache
+$DOCKER_COMPOSE build --no-cache
 
 echo "🚀 Starting services..."
-docker-compose up -d
+$DOCKER_COMPOSE up -d
 
 # Wait for services to be healthy
 echo "⏳ Waiting for services to be ready..."
@@ -54,7 +59,7 @@ echo "🔍 Checking service health..."
 
 # Check PostgreSQL
 echo -n "🐘 PostgreSQL: "
-if docker-compose exec -T postgres pg_isready -U ktoruser -d ktordb >/dev/null 2>&1; then
+if $DOCKER_COMPOSE exec -T postgres pg_isready -U ktoruser -d ktordb >/dev/null 2>&1; then
     echo "✅ Ready"
 else
     echo "❌ Not ready"
@@ -94,9 +99,9 @@ echo "   • System Status:     ws://localhost:8080/ws/system-status"
 echo "   • Traffic Updates:   ws://localhost:8080/ws/traffic"
 echo ""
 echo "🎮 Management Commands:"
-echo "   • View logs:         docker-compose logs -f"
-echo "   • Stop system:       docker-compose down"
-echo "   • Restart:           docker-compose restart"
-echo "   • Clean up:          docker-compose down -v"
+echo "   • View logs:         $DOCKER_COMPOSE logs -f"
+echo "   • Stop system:       $DOCKER_COMPOSE down"
+echo "   • Restart:           $DOCKER_COMPOSE restart"
+echo "   • Clean up:          $DOCKER_COMPOSE down -v"
 echo ""
 echo "✅ Smart Traffic Management System is ready!"

@@ -24,7 +24,7 @@ services:
   python-server:
     build:
       context: ./detection
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.test
     ports:
       - "1234:1234"
     environment:
