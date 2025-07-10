@@ -6,6 +6,7 @@ import com.gub.database.TrafficDatabaseInitializer
 import com.gub.routes.dashboardRoutes
 import com.gub.routes.systemRoutes
 import com.gub.routes.trafficRoutes
+import com.gub.routes.trafficWebSocketRoutes
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.*
 import io.ktor.server.cio.CIO
@@ -39,4 +40,5 @@ fun Application.module() {
     systemRoutes()
     dashboardRoutes()
     trafficRoutes()
+    trafficWebSocketRoutes()
 }
