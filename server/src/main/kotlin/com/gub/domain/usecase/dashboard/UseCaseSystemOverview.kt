@@ -1,7 +1,7 @@
 package com.gub.domain.usecase.dashboard
 
+import com.gub.domain.models.dashboard.ModelSystemOverview
 import com.gub.domain.repository.RepositoryDashboard
-import com.gub.models.dashboard.overview.ModelSystemOverview
 
 class UseCaseSystemOverview(private val repositoryDashboard: RepositoryDashboard) {
 

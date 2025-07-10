@@ -1,45 +1,51 @@
 package com.gub.data.service.dashboard
 
+import com.gub.data.repository.DashboardRepositoryImpl
 import com.gub.domain.models.dashboard.ModelAiControl
 import com.gub.domain.models.dashboard.ModelLiveTraffic
 import com.gub.domain.models.dashboard.ModelSystemOverview
-import com.gub.models.dashboard.overview.ModelWeather
 
-class ServiceDashboard {
+class ServiceDashboard(
+    private val dashboardRepository: DashboardRepositoryImpl
+) {
 
-    fun getAiControlStatus(): ModelAiControl {
-        // Placeholder logic — replace with real-time AI metrics
-        return ModelAiControl(
-            efficiency = 92.5,
-            runningModel = 1,
-            decisionSpeed = 48
+    suspend fun getAiControlStatus(): ModelAiControl {
+        return dashboardRepository.getLatestAiControl()
+    }
+
+    suspend fun getLiveTrafficStatus(): ModelLiveTraffic {
+        return dashboardRepository.getLatestTraffic()
+    }
+
+    suspend fun getSystemOverview(): ModelSystemOverview {
+        return dashboardRepository.getLatestSystemOverview()
+    }
+
+    // Methods to update metrics from external systems
+    suspend fun updateAiMetrics(efficiency: Double, runningModel: Int, decisionSpeed: Int) {
+        dashboardRepository.insertAiControl(efficiency, runningModel, decisionSpeed)
+    }
+
+    suspend fun updateTrafficMetrics(
+        vehicleCount: Int, vehicleDifference: Int, vehicleUpwards: Boolean,
+        congestionCount: Int, congestionDifference: Int, congestionUpwards: Boolean
+    ) {
+        dashboardRepository.insertTrafficMetrics(
+            vehicleCount, vehicleDifference, vehicleUpwards,
+            congestionCount, congestionDifference, congestionUpwards
         )
     }
 
-    fun getLiveTrafficStatus(): ModelLiveTraffic {
-        // Placeholder logic — simulate traffic stats
-        return ModelLiveTraffic(
-            vehicle = ModelLiveTraffic.Vehicle(
-                count = 120,
-                difference = 10,
-                upWards = true
-            ),
-            congestion = ModelLiveTraffic.Congestion(
-                count = 35,
-                difference = -5,
-                upWards = false
-            )
-        )
+    suspend fun updateSystemMetrics(
+        systemHealth: Double, aiResponseTime: Double,
+        avgWaitTime: Double, currentFlow: Double
+    ) {
+        dashboardRepository.insertSystemMetrics(systemHealth, aiResponseTime, avgWaitTime, currentFlow)
     }
 
-    fun getSystemOverview(): ModelSystemOverview {
-        // Placeholder logic — simulate system health
-        return ModelSystemOverview(
-            systemHealth = 96.3,
-            aiResponseTime = 0.42,
-            avgWaitTime = 23.4,
-            currentFlow = 75.2,
-            weather = ModelWeather()
-        )
-    }
+    // Get historical data
+    suspend fun getAiControlHistory(limit: Int = 100) = dashboardRepository.getAiControlHistory(limit)
+
+    // Cleanup old data
+    suspend fun performDataCleanup(daysToKeep: Int = 30) = dashboardRepository.cleanupOldData(daysToKeep)
 }
