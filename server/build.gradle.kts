@@ -45,6 +45,9 @@ dependencies {
     // Content Negotiation + JSON
     implementation("io.ktor:ktor-server-content-negotiation:2.3.10")
     implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.10")
+    
+    // CORS
+    implementation("io.ktor:ktor-server-cors:2.3.10")
 
     // Kotlinx Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
