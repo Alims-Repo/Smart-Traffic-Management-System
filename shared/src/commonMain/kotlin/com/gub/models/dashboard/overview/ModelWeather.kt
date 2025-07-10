@@ -6,6 +6,7 @@ import kotlinx.serialization.Serializable
 data class ModelWeather(
     val temp: Double = 0.0,
     val tempUnit: TempUnit = TempUnit.CELSIUS,
+    val wind: Double = 0.0,
     val humidity: Double = 0.0,
     val visibility: Double = 0.0,
 ) {

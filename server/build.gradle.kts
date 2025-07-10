@@ -32,6 +32,17 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-jdbc:0.50.1")
     implementation("org.postgresql:postgresql:42.7.3")
 
+    implementation("org.jetbrains.exposed:exposed-java-time:0.42.1")
+
+    // Database drivers
+    implementation("com.h2database:h2:2.2.220") // For development
+
+    // Connection pool
+    implementation("com.zaxxer:HikariCP:5.0.1")
+
+    // Dependency injection
+    implementation("io.insert-koin:koin-ktor:3.4.3")
+
     // WebSockets
     implementation("io.ktor:ktor-server-websockets:2.3.10")
     implementation("io.ktor:ktor-server-cio-jvm:2.3.11")

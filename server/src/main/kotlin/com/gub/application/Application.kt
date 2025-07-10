@@ -1,9 +1,7 @@
 package com.gub.application
 
 import com.gub.SERVER_PORT
-import com.gub.database.DatabaseFactory
-import com.gub.routes.dashboardRoutes
-import com.gub.routes.systemRoutes
+import com.gub.routes.dashboardRoute
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.*
 import io.ktor.server.cio.CIO
@@ -13,6 +11,7 @@ import oshi.SystemInfo
 import oshi.hardware.CentralProcessor.TickType
 import io.ktor.server.websocket.WebSockets
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.routing.routing
 import kotlinx.serialization.json.Json
 
 fun main() {
@@ -28,9 +27,7 @@ fun Application.module() {
         json()
     }
 
-    DatabaseFactory.init()
-//    createSchema()
-
-    systemRoutes()
-    dashboardRoutes()
+    routing {
+        dashboardRoute()
+    }
 }
